@@ -27,6 +27,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map.Entry;
 
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -53,6 +54,7 @@ public class CuckooTask implements Task {
 
 	private String cuckooURL;
 	private String urlForProc;
+	private long cuckooTaskId;
 
 	public CuckooTask(TaskContext jobContext, ParametersWrapper parameters, ObjectDataWrapper data, String cuckooURL) {
 		this.jobContext = jobContext;
@@ -84,21 +86,23 @@ public class CuckooTask implements Task {
 			if (conn.getResponseCode() == 200){
 				String result = getResult(conn);
 				JSONObject taskIdObject = new JSONObject(result);
-				long taskId= taskIdObject.getLong("task_id");
+				cuckooTaskId = taskIdObject.getLong("task_id");
 				boolean done = false;
 				while(!done){
 					try {
 						Thread.sleep(30 * 1000);
-						done = isTaskDone(taskId);
+						done = isTaskDone();
 					} catch (InterruptedException e) {
 						done = true;
+						return;
 					}
 				}
-				saveReport(taskId, "html");
-				saveReport(taskId, "json");
+				processDataAndCalculateRating();
+				saveReport("html");
+				saveReport("json");
 				//saveReport(taskId, "all");
-				saveStream(new URL(cuckooURL + GET_PCAP + taskId), "cuckoo_pcap");
-				saveStream(new URL(cuckooURL + GET_SCREENSHOTS + taskId), "cuckoo_screenshots");
+				saveStream(new URL(cuckooURL + GET_PCAP + cuckooTaskId), "cuckoo_pcap");
+				saveStream(new URL(cuckooURL + GET_SCREENSHOTS + cuckooTaskId), "cuckoo_screenshots");
 			}
 			else{
 				throw new RuntimeException("Not implemented");
@@ -108,9 +112,9 @@ public class CuckooTask implements Task {
 		}
 		
 	}
-
-	private void saveReport(long taskId, String type) throws IOException, MalformedURLException, StorageException, ResourceException {
-		saveStream(new URL(cuckooURL + GET_REPORT + taskId+ "/" +type), "cuckoo_report_" +type);
+	
+	private void saveReport(String type) throws IOException, MalformedURLException, StorageException, ResourceException {
+		saveStream(new URL(cuckooURL + GET_REPORT + cuckooTaskId +"/"+ type), "cuckoo_report_" +type);
 	}
 	
 	private void saveStream(URL url, String attrName) throws IOException, StorageException, ResourceException{
@@ -137,8 +141,8 @@ public class CuckooTask implements Task {
 		return result;
 	}
 
-	private boolean isTaskDone(long taskId) throws MalformedURLException, IOException {
-		HttpURLConnection conn = (HttpURLConnection) new URL(cuckooURL + CHECK_TASK + taskId).openConnection();
+	private boolean isTaskDone() throws MalformedURLException, IOException {
+		HttpURLConnection conn = (HttpURLConnection) new URL(cuckooURL + CHECK_TASK + cuckooTaskId).openConnection();
 		conn.connect();
 		
 		if (conn.getResponseCode() == 200){
@@ -147,7 +151,6 @@ public class CuckooTask implements Task {
 			
 			String status = taskObject.getString("status");
 			if ("reported".equals(status)){
-				LOGGER.info("OK!!");
 				jobContext.addAttribute("cuckoo_time_start", taskObject.getString("started_on"));
 				jobContext.addAttribute("cuckoo_time_stop", taskObject.getString("completed_on"));
 				return true;
@@ -158,5 +161,31 @@ public class CuckooTask implements Task {
 		}
 		return false;
 	}
-
+	
+	private void processDataAndCalculateRating() throws IOException{
+		SignatureProcessor sigProcessor = new SignatureProcessor(cuckooTaskId, cuckooURL + GET_REPORT);
+		sigProcessor.process();
+		Process process = sigProcessor.getMaxRateProcess();
+		
+		String reason = process.getSignatureNamesAsString();
+		double score = process.getScore();
+		for (Entry<String, Double> entry : sigProcessor.getAdditionalScores().entrySet()){
+			score += entry.getValue();
+			reason += ", "+ entry.getKey();
+		}
+		
+		jobContext.addAttribute("cuckoo_classification", calculate(score));
+		jobContext.addAttribute("cuckoo_classification_reason", reason);
+	}
+	
+	private String calculate(double score){
+		if(score < 1){
+			return "benign";
+		}else if(score >= 1.5){
+			return "malicious";
+		}
+		else{
+			return "suspicious";
+		}
+	}
 }
