@@ -19,15 +19,22 @@
 
 package pl.nask.hsn2.service;
 
+import java.io.File;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import pl.nask.hsn2.CommandLineParams;
 
 public class CuckooCommandLineParams extends CommandLineParams {
 	private static final OptionNameWrapper CUCKOO_ADDRESS = new OptionNameWrapper("ca", "cuckooAddress");
-    
+	private static final OptionNameWrapper CUCKOO_PROC_PATH = new OptionNameWrapper("cpp", "cuckooProcPath");
+	private static final Logger LOGGER = LoggerFactory.getLogger(CuckooCommandLineParams.class);
 	@Override
 	public void initOptions() {
 		super.initOptions();
 		addOption(CUCKOO_ADDRESS, "url", "API server address");
+		addOption(CUCKOO_PROC_PATH, "path", "Path for processing files");
 	}
 	
 	@Override
@@ -35,15 +42,27 @@ public class CuckooCommandLineParams extends CommandLineParams {
 		super.initDefaults();
 		setDefaultServiceNameAndQueueName("cuckoo");
 		setDefaultValue(CUCKOO_ADDRESS, "http://localhost:1337");
+		setDefaultValue(CUCKOO_PROC_PATH, "/tmp");
 	}
 	
 	public String getCuckooAdress(){
 		return getOptionValue(CUCKOO_ADDRESS);
 	}
 	
+	public String getCuckooProcPath(){
+		return getOptionValue(CUCKOO_PROC_PATH);
+	}
+	
 	@Override
 	protected void validate(){
 		super.validate();
-		//TODO: implement
+		String msg = "";
+		if (!new File(getCuckooProcPath()).exists()){
+			msg += "CuckooProcPath not exists!\n";
+			LOGGER.error("CuckooProcPath does not exist! Path used: {}", getCuckooProcPath());
+		}
+		if (!"".equals(msg)){
+			throw new IllegalStateException(msg);
+		}
 	}
 }

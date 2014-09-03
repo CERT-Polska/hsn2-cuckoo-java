@@ -25,6 +25,7 @@ import org.apache.commons.daemon.DaemonInitException;
 
 import pl.nask.hsn2.CommandLineParams;
 import pl.nask.hsn2.ServiceMain;
+import pl.nask.hsn2.connector.CuckooRESTConnector;
 import pl.nask.hsn2.task.CuckooServiceTaskFactory;
 import pl.nask.hsn2.task.TaskFactory;
 
@@ -46,7 +47,7 @@ public class CuckooService extends ServiceMain {
 	
 	@Override
 	protected void prepareService() {
-		// TODO Auto-generated method stub
+		CuckooRESTConnector.setCuckooURL(((CuckooCommandLineParams)getCommandLineParams()).getCuckooAdress());
 
 	}
 

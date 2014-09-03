@@ -9,10 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Rating {
 	private static Map<String,Double> rates = new HashMap<>();
+	private static final Logger LOGGER = LoggerFactory.getLogger(Rating.class);
 	static{
-		System.out.println(new File("src/main/resources/ratings.conf").getAbsolutePath());
+		LOGGER.info("Load ratings from file: "+ new File("src/main/resources/ratings.conf").getAbsolutePath());
 		try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/resources/ratings.conf")))){
 			for(String line = reader.readLine(); line != null; line = reader.readLine()){
 				String[] tokens = line.split("=");

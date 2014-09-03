@@ -1,10 +1,26 @@
+/*
+ * Copyright (c) NASK, NCSC
+ * 
+ * This file is part of HoneySpider Network 2.0.
+ * 
+ * This is a free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package pl.nask.hsn2.task;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,51 +34,31 @@ import com.google.gson.stream.JsonReader;
 
 public class SignatureProcessor {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SignatureProcessor.class);
-	private long cuckooTaskId;
-	private String reportURL;
 	
 	private Map<Long, Process> dataWithPid = new HashMap<>();
 	private Map<String, Double> data = new HashMap<>();
 	
-	public SignatureProcessor(long cuckooTaskId, String reportURL) {
-		this.cuckooTaskId = cuckooTaskId;
-		this.reportURL = reportURL;
+	public SignatureProcessor() {
 	}
 	
-	public void process() throws IOException {
-		extractSignatures();
-	}
-	
-	private void extractSignatures() throws IOException {
-		URL url = new URL(reportURL + cuckooTaskId +"/json");
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.connect();
-		if (conn.getResponseCode() == 200){
-			try(
-					InputStream stream = conn.getInputStream();
-					JsonReader reader = new JsonReader(new InputStreamReader(stream))
-			){
-				reader.beginObject();
-				while (reader.hasNext()){
-					String name = reader.nextName();
-					if ("signatures".equals(name)){
-						reader.beginArray();
-						while (reader.hasNext()) {
-							Signature<Map<String,Object>> signature = new Gson().fromJson(reader, new Signature<>().getClass());
-							extractData(signature);
-						}
-						reader.endArray();
-					}
-					else{
-						reader.skipValue();
-					}
+	public void process(InputStream stream) throws IOException {
+		JsonReader reader = new JsonReader(new InputStreamReader(stream));
+		reader.beginObject();
+		while (reader.hasNext()){
+			String name = reader.nextName();
+			if ("signatures".equals(name)){
+				reader.beginArray();
+				while (reader.hasNext()) {
+					Signature<Map<String,Object>> signature = new Gson().fromJson(reader, new Signature<>().getClass());
+					extractData(signature);
 				}
-				reader.endObject();
+				reader.endArray();
+			}
+			else{
+				reader.skipValue();
 			}
 		}
-		else{
-			throw new RuntimeException("Not implemented");
-		}
+		reader.endObject();
 	}
 	
 	private void extractData(Signature<Map<String,Object>> signature){
