@@ -1,0 +1,7 @@
+Package: hsn2-cuckoo-java
+Version: {VER}
+Section: unknown
+Priority: optional
+Architecture: all
+Maintainer: Juliusz Brzostek (juliusz.brzostek@cert.pl)
+Description: HSN2 Cuckoo Component in Java.
