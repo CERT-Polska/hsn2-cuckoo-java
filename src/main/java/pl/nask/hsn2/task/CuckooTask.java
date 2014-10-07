@@ -51,7 +51,6 @@ public class CuckooTask implements Task {
 	private final TaskContext jobContext;
 	private final ObjectDataWrapper data;
 	
-	private String urlForProc;
 	private long cuckooTaskId;
 	
 	private boolean save_pcap = false;
@@ -112,6 +111,7 @@ public class CuckooTask implements Task {
 				cuckooTaskId = cuckooConector.sendFile(file, cuckooParams);
 			}
 			else{
+				String urlForProc = data.getUrlForProcessing();
 				cuckooTaskId = cuckooConector.sendURL(urlForProc, cuckooParams);
 			}
 		}
@@ -230,12 +230,18 @@ public class CuckooTask implements Task {
 			throw new ResourceException(e.getMessage(), e);
 		}
 		Process process = sigProcessor.getMaxRateProcess();
-		
-		String reason = process.getSignatureNamesAsString();
-		double score = process.getScore();
+		String reason = "";
+		double score = 0.0;
+		if (process != null){
+			reason = process.getSignatureNamesAsString();
+			score = process.getScore();
+		}
 		for (Entry<String, Double> entry : sigProcessor.getAdditionalScores().entrySet()){
 			score += entry.getValue();
-			reason += ", "+ entry.getKey();
+			if(!"".equals(reason)){
+				reason += ", ";
+			}
+			reason += entry.getKey();
 		}
 		
 		jobContext.addAttribute("cuckoo_classification", calculate(score));

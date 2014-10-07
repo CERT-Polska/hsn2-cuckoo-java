@@ -90,7 +90,7 @@ public class SignatureProcessor {
 	public Process getMaxRateProcess(){
 		Process[] processesList = dataWithPid.values().toArray(new Process[dataWithPid.size()]);
 		Arrays.sort(processesList);
-		return processesList[0];
+		return processesList.length == 0 ? null : processesList[0];
 	}
 	
 	public Map<String, Double> getAdditionalScores(){
