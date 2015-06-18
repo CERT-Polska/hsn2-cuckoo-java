@@ -47,6 +47,7 @@ public class CuckooRESTConnector {
 	private static final String GET_REPORT = "/tasks/report/";
 	private static final String GET_PCAP = "/pcap/get/";
 	private static final String GET_SCREENSHOTS = "/tasks/screenshots/";
+	private static final String DELETE_TASK = "/tasks/delete/";
 	private static String cuckooURL = null;
 	
 	public static void setCuckooURL(String cuckooURL){
@@ -55,6 +56,29 @@ public class CuckooRESTConnector {
 		}
 		else{
 			LOGGER.warn("Cuckoo URL already set!");
+		}
+	}
+	
+	public void deleteTaskData(long cuckooTaskId) {
+		try(CuckooConnection connection = connect(cuckooURL + DELETE_TASK + cuckooTaskId)){
+			int status = connection.getResultStatusCode();
+			switch (status) {
+			case 200: 
+				LOGGER.info("Cuckoo: task data deleted: " + cuckooTaskId);
+				break;
+			case 404:
+				LOGGER.warn("Cuckoo: error deleting task data, task not found: " + cuckooTaskId);
+				break;
+			case 500:
+				LOGGER.warn("Cuckoo: error deleting task data, could not delete task data: " + cuckooTaskId);
+				break;
+			default:
+				LOGGER.warn("Cuckoo: error deleting task data (unknown status code: " + status + "), task: " + cuckooTaskId);
+			}
+		} catch (CuckooException  e) {
+			LOGGER.warn("Cuckoo: error deleting task data: " + e.getMessage() + ", task: " + cuckooTaskId, e);
+		} catch (IOException e) {
+			LOGGER.warn("Error closing connection while deleting task data for task: " + cuckooTaskId, e);
 		}
 	}
 	
@@ -104,7 +128,7 @@ public class CuckooRESTConnector {
 				throw new CuckooException("Unexpected response status: "+ status);
 			}
 		} catch (IOException e) {
-			throw new CuckooException(e.getMessage(), e);
+			throw new CuckooException("Error while sending post data to " + cuckooURL + " : " + e.getMessage(), e);
 		} 
 		
 		finally{

@@ -68,4 +68,8 @@ public class CuckooConnection implements Closeable{
 			throw new CuckooException(e.getMessage(), e);
 		}
 	}
+	
+	public int getResultStatusCode() {
+		return getMethod.getStatusCode();
+	}
 }

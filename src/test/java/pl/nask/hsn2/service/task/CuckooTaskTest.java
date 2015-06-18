@@ -39,7 +39,7 @@ public class CuckooTaskTest {
 			public String getUrlForProcessing() {
 				return "http://google.com";
 			}
-		},"http://192.168.57.101:1337");
+		},"http://192.168.57.101:1337", true);
 		
 		task.process();
 	}

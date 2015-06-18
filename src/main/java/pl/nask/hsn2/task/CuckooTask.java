@@ -62,11 +62,14 @@ public class CuckooTask implements Task {
 	private CuckooRESTConnector cuckooConector;
 	private Set<NameValuePair> cuckooParams = new HashSet<>();
 
-	public CuckooTask(TaskContext jobContext, ParametersWrapper parameters, ObjectDataWrapper data, String cuckooProcPath) {
+	private boolean cleanJobData;
+
+	public CuckooTask(TaskContext jobContext, ParametersWrapper parameters, ObjectDataWrapper data, String cuckooProcPath, boolean cleanJobData) {
 		this.jobContext = jobContext;
 		this.data = data;
 		this.cuckooProcPath = cuckooProcPath;
         this.parameters = parameters;
+		this.cleanJobData = cleanJobData;
         applyParameters();
         cuckooConector = new CuckooRESTConnector();
 	}
@@ -75,7 +78,7 @@ public class CuckooTask implements Task {
 		this.save_pcap = parameters.getBoolean("save_pcap", save_pcap);
 		this.save_report_json = parameters.getBoolean("save_report_json", save_report_json);
 		this.save_report_html = parameters.getBoolean("save_report_html", save_report_html);
-		this.save_screenshots = parameters.getBoolean("save_screenshots", save_screenshots);
+		this.save_screenshots = parameters.getBoolean("save_screenshots", save_screenshots);		
 		extractCuckooParam("timeout", cuckooParams);
 		extractCuckooParam("priority", cuckooParams);
 		extractCuckooParam("package", cuckooParams);
@@ -142,6 +145,9 @@ public class CuckooTask implements Task {
 		if (save_screenshots){
 			saveScreenshots();
 		}
+		if (cleanJobData) {
+			cuckooConector.deleteTaskData(cuckooTaskId);
+		}
 	}
 
 	private File downloadFile(Long contentId) throws StorageException, ResourceException {
@@ -173,6 +179,7 @@ public class CuckooTask implements Task {
 	
 	private void saveJsonReport() throws StorageException, ResourceException {
 		try(CuckooConnection conn = cuckooConector.getJsonReportAsStream(cuckooTaskId)){
+			LOGGER.info("Saving JSON report file, status from cuckoo: " + conn.getResultStatusCode());
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
 			jobContext.addReference("cuckoo_report_json", refId);
 		} catch (CuckooException e) {
@@ -184,6 +191,7 @@ public class CuckooTask implements Task {
 	
 	private void savePcap() throws  StorageException, ResourceException{
 		try(CuckooConnection conn = cuckooConector.getPcapAsStream(cuckooTaskId)){
+			LOGGER.info("Saving PCAP file, status from cuckoo: " + conn.getResultStatusCode());
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
 			jobContext.addReference("cuckoo_pcap", refId);
 		} catch (CuckooException e) {
@@ -195,6 +203,7 @@ public class CuckooTask implements Task {
 	
 	private void saveScreenshots() throws  StorageException, ResourceException{
 		try(CuckooConnection conn = cuckooConector.getScreenshotsAsStream(cuckooTaskId)){
+			LOGGER.info("Saving screenshots, status from cuckoo: " + conn.getResultStatusCode());
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
 			jobContext.addReference("cuckoo_pcap", refId);
 		} catch (CuckooException e) {

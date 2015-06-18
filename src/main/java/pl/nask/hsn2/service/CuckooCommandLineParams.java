@@ -29,12 +29,14 @@ import pl.nask.hsn2.CommandLineParams;
 public class CuckooCommandLineParams extends CommandLineParams {
 	private static final OptionNameWrapper CUCKOO_ADDRESS = new OptionNameWrapper("ca", "cuckooAddress");
 	private static final OptionNameWrapper CUCKOO_PROC_PATH = new OptionNameWrapper("cpp", "cuckooProcPath");
+	private static final OptionNameWrapper CLEAN_JOB_DATA = new OptionNameWrapper("clean", "cleanupJob");
 	private static final Logger LOGGER = LoggerFactory.getLogger(CuckooCommandLineParams.class);
 	@Override
 	public void initOptions() {
 		super.initOptions();
 		addOption(CUCKOO_ADDRESS, "url", "API server address");
 		addOption(CUCKOO_PROC_PATH, "path", "Path for processing files");
+		addOption(CLEAN_JOB_DATA, "flag", "Clean cuckoo job data after task is processed (true/false)");
 	}
 	
 	@Override
@@ -43,6 +45,7 @@ public class CuckooCommandLineParams extends CommandLineParams {
 		setDefaultServiceNameAndQueueName("cuckoo");
 		setDefaultValue(CUCKOO_ADDRESS, "http://localhost:1337");
 		setDefaultValue(CUCKOO_PROC_PATH, "/tmp");
+		setDefaultValue(CLEAN_JOB_DATA, "true");
 	}
 	
 	public String getCuckooAdress(){
@@ -51,6 +54,10 @@ public class CuckooCommandLineParams extends CommandLineParams {
 	
 	public String getCuckooProcPath(){
 		return getOptionValue(CUCKOO_PROC_PATH);
+	}
+	
+	public boolean isCleanJobData() {
+		return "true".equalsIgnoreCase(getOptionValue(CLEAN_JOB_DATA));
 	}
 	
 	@Override
