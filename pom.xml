@@ -2,7 +2,7 @@
   	<modelVersion>4.0.0</modelVersion>
   	<artifactId>hsn2-cuckoo-java</artifactId>
   	<version>1.0.0-SNAPSHOT</version>
-  	<name>hsn2-cuckoo-java</name>
+  	<name>HSN2 Cuckoo Java</name>
 
   	<properties>
 		<mainClass>pl.nask.hsn2.service.CuckooService</mainClass>
@@ -116,4 +116,6 @@
 			</build>
 		</profile>
 	</profiles>
+	<description>HSN2 Cuckoo Java analyses supplied websites using the Cuckoo sandbox. Cuckoo has to be installed and configured separately. Generates html and json reports from the analysis. Saves network information in the pcap format and 
+saves screenshots. Calculates a rating for the site using the generated reports.</description>
 </project>
