@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+. /lib/hsn2/conf-functions
+
+if [ "$1" = "configure" ]; then
+	setConfigValueFromDb CUCKOO_ADDRESS hsn2-cuckoo-java/cuckoo_address /etc/hsn2/cuckoo.conf
+	setConfigValueFromDb CUCKOO_PROC_PATH hsn2-cuckoo-java/cuckoo_proc_path /etc/hsn2/cuckoo.conf
+	db_stop
+fi
+
+#DEBHELPER#

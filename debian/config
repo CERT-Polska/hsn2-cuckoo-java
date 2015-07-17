@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+db_input high hsn2-cuckoo-java/cuckoo_address || true
+db_go
+db_input high hsn2-cuckoo-java/cuckoo_proc_path || true
+db_go

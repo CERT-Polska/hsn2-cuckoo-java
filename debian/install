@@ -1,1 +1,2 @@
 build/hsn2-cuckoo-java /opt/hsn2/
+cuckoo.conf /etc/hsn2/
