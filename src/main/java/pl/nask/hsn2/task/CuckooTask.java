@@ -209,7 +209,7 @@ public class CuckooTask implements Task {
 		try(CuckooConnection conn = cuckooConector.getScreenshotsAsStream(cuckooTaskId)){
 			LOGGER.info("Saving screenshots, status from cuckoo: " + conn.getResultStatusCode());
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
-			jobContext.addReference("cuckoo_pcap", refId);
+			jobContext.addReference("cuckoo_screenshot", refId);
 		} catch (CuckooException e) {
 			throw new ResourceException(e.getMessage(), e);
 		} catch (IOException e) {
@@ -230,7 +230,7 @@ public class CuckooTask implements Task {
 			try {
 				jobContext.addAttribute("cuckoo_time_stop", taskInfo.getString("completed_on"));
 			} catch (JSONException e) {
-				LOGGER.warn(e.getMessage(), e);
+				LOGGER.warn(e.getMessage());
 				LOGGER.warn("Inserting current date as \"cuckoo_time_stop\"");
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				Date date = new Date();
