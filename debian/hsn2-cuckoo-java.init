@@ -15,7 +15,7 @@ HSN2_COMPONENT="cuckoo-java"
 MAINCLASS="pl.nask.hsn2.service.CuckooService"
 CONFFILE=/etc/hsn2/cuckoo.conf
 
-HSN2_JMX_PORT=1110
+#HSN2_JMX_PORT=1110
 
 . /lib/hsn2/init-functions-java
 
