@@ -1,8 +1,8 @@
 /*
  * Copyright (c) NASK, NCSC
- * 
+ *
  * This file is part of HoneySpider Network 2.0.
- * 
+ *
  * This is a free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -21,6 +21,9 @@ package pl.nask.hsn2.task;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -29,6 +32,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,9 +54,9 @@ public class CuckooTask implements Task {
 
 	private final TaskContext jobContext;
 	private final ObjectDataWrapper data;
-	
+
 	private long cuckooTaskId;
-	
+
 	private boolean save_pcap = false;
 	private boolean save_report_json = true;
 	private boolean save_report_html = false;
@@ -78,18 +82,18 @@ public class CuckooTask implements Task {
 		this.save_pcap = parameters.getBoolean("save_pcap", save_pcap);
 		this.save_report_json = parameters.getBoolean("save_report_json", save_report_json);
 		this.save_report_html = parameters.getBoolean("save_report_html", save_report_html);
-		this.save_screenshots = parameters.getBoolean("save_screenshots", save_screenshots);		
+		this.save_screenshots = parameters.getBoolean("save_screenshots", save_screenshots);
 		extractCuckooParam("timeout", cuckooParams);
 		extractCuckooParam("priority", cuckooParams);
 		extractCuckooParam("package", cuckooParams);
 		extractCuckooParam("vm_id", "machine", cuckooParams);
-		
+
 	}
-	
+
 	private void extractCuckooParam (String paramName, Set<NameValuePair> cuckooParams){
 		extractCuckooParam(paramName, paramName, cuckooParams);
 	}
-	
+
 	private void extractCuckooParam (String paramName,String cuckooParamName, Set<NameValuePair> cuckooParams){
 		if (parameters.hasParam(paramName)){
 			try{
@@ -100,14 +104,14 @@ public class CuckooTask implements Task {
 			}
 		}
 	}
-	
+
 	public boolean takesMuchTime() {
 		return true;
 	}
 
 	public void process() throws ParameterException, ResourceException,	StorageException, InputDataException {
 		Long contentId = data.getReferenceId("content");
-		
+
 		try{
 			if (contentId != null){
 				File file = downloadFile(contentId);
@@ -121,7 +125,7 @@ public class CuckooTask implements Task {
 		catch(CuckooException e){
 			throw new ResourceException(e.getMessage(), e);
 		}
-		
+
 		boolean done = false;
 		while(!done){
 			try {
@@ -154,7 +158,7 @@ public class CuckooTask implements Task {
 		try{
 			byte[] fileInByte = IOUtils.toByteArray(jobContext.getFileAsInputStream(contentId));
 			String fileName = data.getString("filename");
-			
+
 			if (fileName == null){
 				fileName = DigestUtils.md5Hex(fileInByte);
 			}
@@ -165,7 +169,7 @@ public class CuckooTask implements Task {
 			throw new ResourceException(e.getMessage(),e);
 		}
 	}
-	
+
 	private void saveHtmlReport() throws StorageException, ResourceException {
 		try(CuckooConnection conn = cuckooConector.getHtmlReportAsStream(cuckooTaskId)){
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
@@ -176,7 +180,7 @@ public class CuckooTask implements Task {
 			LOGGER.warn("Can not close connection.", e);
 		}
 	}
-	
+
 	private void saveJsonReport() throws StorageException, ResourceException {
 		try(CuckooConnection conn = cuckooConector.getJsonReportAsStream(cuckooTaskId)){
 			LOGGER.info("Saving JSON report file, status from cuckoo: " + conn.getResultStatusCode());
@@ -188,7 +192,7 @@ public class CuckooTask implements Task {
 			LOGGER.warn("Can not close connection.", e);
 		}
 	}
-	
+
 	private void savePcap() throws  StorageException, ResourceException{
 		try(CuckooConnection conn = cuckooConector.getPcapAsStream(cuckooTaskId)){
 			LOGGER.info("Saving PCAP file, status from cuckoo: " + conn.getResultStatusCode());
@@ -200,7 +204,7 @@ public class CuckooTask implements Task {
 			LOGGER.warn("Can not close connection.", e);
 		}
 	}
-	
+
 	private void saveScreenshots() throws  StorageException, ResourceException{
 		try(CuckooConnection conn = cuckooConector.getScreenshotsAsStream(cuckooTaskId)){
 			LOGGER.info("Saving screenshots, status from cuckoo: " + conn.getResultStatusCode());
@@ -223,14 +227,22 @@ public class CuckooTask implements Task {
 		String status = taskInfo.getString("status");
 		if ("reported".equals(status)){
 			jobContext.addAttribute("cuckoo_time_start", taskInfo.getString("started_on"));
-			jobContext.addAttribute("cuckoo_time_stop", taskInfo.getString("completed_on"));
+			try {
+				jobContext.addAttribute("cuckoo_time_stop", taskInfo.getString("completed_on"));
+			} catch (JSONException e) {
+				LOGGER.warn(e.getMessage(), e);
+				LOGGER.warn("Inserting current date as \"cuckoo_time_stop\"");
+				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				Date date = new Date();
+				jobContext.addAttribute("cuckoo_time_stop", dateFormat.format(date));
+			}
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
-	
+
 	private void processDataAndCalculateRating() throws ResourceException{
 		SignatureProcessor sigProcessor = new SignatureProcessor();
 		try(CuckooConnection conn = cuckooConector.getJsonReportAsStream(cuckooTaskId)){
@@ -252,11 +264,11 @@ public class CuckooTask implements Task {
 			}
 			reason += entry.getKey();
 		}
-		
+
 		jobContext.addAttribute("cuckoo_classification", calculate(score));
 		jobContext.addAttribute("cuckoo_classification_reason", reason);
 	}
-	
+
 	private String calculate(double score){
 		if(score < 1){
 			return "benign";
