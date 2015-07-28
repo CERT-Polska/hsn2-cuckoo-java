@@ -23,9 +23,10 @@ prepare_start() {
 	HSN2_COMPONENT_PARAMS="--connector ${BROKER_ADDRESS}
 		--dataStore http://${DATASTORE_ADDRESS} \
 		--cuckooAddress ${CUCKOO_ADDRESS} \
-		--cuckooProcPath ${CUCKOO_PROC_PATH}"
+		--cuckooProcPath ${CUCKOO_PROC_PATH} \
+		--logLevel ${LOG_LEVEL}"
 }
-	
+
 choose_java_service_action $@
 
 exit $?
