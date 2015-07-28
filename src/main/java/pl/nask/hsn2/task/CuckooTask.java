@@ -27,6 +27,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.httpclient.NameValuePair;
@@ -61,6 +62,8 @@ public class CuckooTask implements Task {
 	private boolean save_report_json = true;
 	private boolean save_report_html = false;
 	private boolean save_screenshots = true;
+	private boolean fail_on_error = false;
+	private int timeout = 1200;
 	private ParametersWrapper parameters;
 	private String cuckooProcPath;
 	private CuckooRESTConnector cuckooConector;
@@ -68,21 +71,24 @@ public class CuckooTask implements Task {
 
 	private boolean cleanJobData;
 
-	public CuckooTask(TaskContext jobContext, ParametersWrapper parameters, ObjectDataWrapper data, String cuckooProcPath, boolean cleanJobData) {
+	public CuckooTask(TaskContext jobContext, ParametersWrapper parameters, ObjectDataWrapper data,
+			String cuckooProcPath, boolean cleanJobData) throws ParameterException {
 		this.jobContext = jobContext;
 		this.data = data;
 		this.cuckooProcPath = cuckooProcPath;
-        this.parameters = parameters;
+		this.parameters = parameters;
 		this.cleanJobData = cleanJobData;
-        applyParameters();
-        cuckooConector = new CuckooRESTConnector();
+		applyParameters();
+		cuckooConector = new CuckooRESTConnector();
 	}
 
-	private void applyParameters() {
+	private void applyParameters() throws ParameterException {
 		this.save_pcap = parameters.getBoolean("save_pcap", save_pcap);
 		this.save_report_json = parameters.getBoolean("save_report_json", save_report_json);
 		this.save_report_html = parameters.getBoolean("save_report_html", save_report_html);
 		this.save_screenshots = parameters.getBoolean("save_screenshots", save_screenshots);
+		this.fail_on_error = parameters.getBoolean("fail_on_error", fail_on_error);
+		this.timeout = parameters.getInt("timeout", timeout);
 		extractCuckooParam("timeout", cuckooParams);
 		extractCuckooParam("priority", cuckooParams);
 		extractCuckooParam("package", cuckooParams);
@@ -90,17 +96,16 @@ public class CuckooTask implements Task {
 
 	}
 
-	private void extractCuckooParam (String paramName, Set<NameValuePair> cuckooParams){
+	private void extractCuckooParam(String paramName, Set<NameValuePair> cuckooParams) {
 		extractCuckooParam(paramName, paramName, cuckooParams);
 	}
 
-	private void extractCuckooParam (String paramName,String cuckooParamName, Set<NameValuePair> cuckooParams){
-		if (parameters.hasParam(paramName)){
-			try{
+	private void extractCuckooParam(String paramName, String cuckooParamName, Set<NameValuePair> cuckooParams) {
+		if (parameters.hasParam(paramName)) {
+			try {
 				cuckooParams.add(new NameValuePair(cuckooParamName, parameters.get(paramName)));
-			}
-			catch (ParameterException e){
-				LOGGER.warn("Problem with parameter. Ignore: "+ paramName, e);
+			} catch (ParameterException e) {
+				LOGGER.warn("Problem with parameter. Ignore: " + paramName, e);
 			}
 		}
 	}
@@ -109,44 +114,60 @@ public class CuckooTask implements Task {
 		return true;
 	}
 
-	public void process() throws ParameterException, ResourceException,	StorageException, InputDataException {
+	public void process() throws ParameterException, ResourceException, StorageException, InputDataException {
 		Long contentId = data.getReferenceId("content");
 
-		try{
-			if (contentId != null){
+		try {
+			if (contentId != null) {
 				File file = downloadFile(contentId);
 				cuckooTaskId = cuckooConector.sendFile(file, cuckooParams);
-			}
-			else{
+			} else {
 				String urlForProc = data.getUrlForProcessing();
 				cuckooTaskId = cuckooConector.sendURL(urlForProc, cuckooParams);
 			}
-		}
-		catch(CuckooException e){
-			throw new ResourceException(e.getMessage(), e);
+		} catch (CuckooException e) {
+			if (fail_on_error) {
+				throw new ResourceException(e.getMessage(), e);
+			} else {
+				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				return;
+			}
 		}
 
 		boolean done = false;
-		while(!done){
+		int waited = 0;
+		while (!done) {
 			try {
-				Thread.sleep(30 * 1000);
+				TimeUnit.SECONDS.sleep(30);
+				waited += 30;
 				done = isTaskDone();
 			} catch (InterruptedException e) {
 				done = true;
 				return;
 			}
+
+			if (waited >= timeout) {
+				done = true;
+				if (fail_on_error) {
+					throw new ResourceException("Task processing timeout");
+				} else {
+					jobContext.addAttribute("cuckoo_error", "Task processing timeout");
+					return;
+				}
+			}
 		}
+
 		processDataAndCalculateRating();
-		if (save_report_html){
+		if (save_report_html) {
 			saveHtmlReport();
 		}
-		if (save_report_json){
+		if (save_report_json) {
 			saveJsonReport();
 		}
-		if (save_pcap){
+		if (save_pcap) {
 			savePcap();
 		}
-		if (save_screenshots){
+		if (save_screenshots) {
 			saveScreenshots();
 		}
 		if (cleanJobData) {
@@ -155,63 +176,83 @@ public class CuckooTask implements Task {
 	}
 
 	private File downloadFile(Long contentId) throws StorageException, ResourceException {
-		try{
+		try {
 			byte[] fileInByte = IOUtils.toByteArray(jobContext.getFileAsInputStream(contentId));
 			String fileName = data.getString("filename");
 
-			if (fileName == null){
+			if (fileName == null) {
 				fileName = DigestUtils.md5Hex(fileInByte);
 			}
 			File file = new File(cuckooProcPath, fileName);
 			FileUtils.writeByteArrayToFile(file, fileInByte);
 			return file;
 		} catch (IOException e) {
-			throw new ResourceException(e.getMessage(),e);
+			throw new ResourceException(e.getMessage(), e);
 		}
 	}
 
 	private void saveHtmlReport() throws StorageException, ResourceException {
-		try(CuckooConnection conn = cuckooConector.getHtmlReportAsStream(cuckooTaskId)){
+		try (CuckooConnection conn = cuckooConector.getHtmlReportAsStream(cuckooTaskId)) {
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
 			jobContext.addReference("cuckoo_report_html", refId);
 		} catch (CuckooException e) {
-			throw new ResourceException(e.getMessage(), e);
+			if (fail_on_error) {
+				throw new ResourceException(e.getMessage(), e);
+			} else {
+				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				return;
+			}
 		} catch (IOException e) {
 			LOGGER.warn("Can not close connection.", e);
 		}
 	}
 
 	private void saveJsonReport() throws StorageException, ResourceException {
-		try(CuckooConnection conn = cuckooConector.getJsonReportAsStream(cuckooTaskId)){
+		try (CuckooConnection conn = cuckooConector.getJsonReportAsStream(cuckooTaskId)) {
 			LOGGER.info("Saving JSON report file, status from cuckoo: " + conn.getResultStatusCode());
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
 			jobContext.addReference("cuckoo_report_json", refId);
 		} catch (CuckooException e) {
-			throw new ResourceException(e.getMessage(), e);
+			if (fail_on_error) {
+				throw new ResourceException(e.getMessage(), e);
+			} else {
+				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				return;
+			}
 		} catch (IOException e) {
 			LOGGER.warn("Can not close connection.", e);
 		}
 	}
 
-	private void savePcap() throws  StorageException, ResourceException{
-		try(CuckooConnection conn = cuckooConector.getPcapAsStream(cuckooTaskId)){
+	private void savePcap() throws StorageException, ResourceException {
+		try (CuckooConnection conn = cuckooConector.getPcapAsStream(cuckooTaskId)) {
 			LOGGER.info("Saving PCAP file, status from cuckoo: " + conn.getResultStatusCode());
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
 			jobContext.addReference("cuckoo_pcap", refId);
 		} catch (CuckooException e) {
-			throw new ResourceException(e.getMessage(), e);
+			if (fail_on_error) {
+				throw new ResourceException(e.getMessage(), e);
+			} else {
+				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				return;
+			}
 		} catch (IOException e) {
 			LOGGER.warn("Can not close connection.", e);
 		}
 	}
 
-	private void saveScreenshots() throws  StorageException, ResourceException{
-		try(CuckooConnection conn = cuckooConector.getScreenshotsAsStream(cuckooTaskId)){
+	private void saveScreenshots() throws StorageException, ResourceException {
+		try (CuckooConnection conn = cuckooConector.getScreenshotsAsStream(cuckooTaskId)) {
 			LOGGER.info("Saving screenshots, status from cuckoo: " + conn.getResultStatusCode());
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
 			jobContext.addReference("cuckoo_screenshot", refId);
 		} catch (CuckooException e) {
-			throw new ResourceException(e.getMessage(), e);
+			if (fail_on_error) {
+				throw new ResourceException(e.getMessage(), e);
+			} else {
+				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				return;
+			}
 		} catch (IOException e) {
 			LOGGER.warn("Can not close connection.", e);
 		}
@@ -222,10 +263,15 @@ public class CuckooTask implements Task {
 		try {
 			taskInfo = cuckooConector.getTaskInfo(cuckooTaskId);
 		} catch (CuckooException e) {
-			throw new ResourceException(e.getMessage(), e);
+			if (fail_on_error) {
+				throw new ResourceException(e.getMessage(), e);
+			} else {
+				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				return true;
+			}
 		}
 		String status = taskInfo.getString("status");
-		if ("reported".equals(status)){
+		if ("reported".equals(status)) {
 			jobContext.addAttribute("cuckoo_time_start", taskInfo.getString("started_on"));
 			try {
 				jobContext.addAttribute("cuckoo_time_stop", taskInfo.getString("completed_on"));
@@ -237,29 +283,33 @@ public class CuckooTask implements Task {
 				jobContext.addAttribute("cuckoo_time_stop", dateFormat.format(date));
 			}
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
 
-	private void processDataAndCalculateRating() throws ResourceException{
+	private void processDataAndCalculateRating() throws ResourceException {
 		SignatureProcessor sigProcessor = new SignatureProcessor();
-		try(CuckooConnection conn = cuckooConector.getJsonReportAsStream(cuckooTaskId)){
+		try (CuckooConnection conn = cuckooConector.getJsonReportAsStream(cuckooTaskId)) {
 			sigProcessor.process(conn.getBodyAsInputStream());
 		} catch (IOException | CuckooException e) {
-			throw new ResourceException(e.getMessage(), e);
+			if (fail_on_error) {
+				throw new ResourceException(e.getMessage(), e);
+			} else {
+				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				return;
+			}
 		}
 		Process process = sigProcessor.getMaxRateProcess();
 		String reason = "";
 		double score = 0.0;
-		if (process != null){
+		if (process != null) {
 			reason = process.getSignatureNamesAsString();
 			score = process.getScore();
 		}
-		for (Entry<String, Double> entry : sigProcessor.getAdditionalScores().entrySet()){
+		for (Entry<String, Double> entry : sigProcessor.getAdditionalScores().entrySet()) {
 			score += entry.getValue();
-			if(!"".equals(reason)){
+			if (!"".equals(reason)) {
 				reason += ", ";
 			}
 			reason += entry.getKey();
@@ -269,13 +319,12 @@ public class CuckooTask implements Task {
 		jobContext.addAttribute("cuckoo_classification_reason", reason);
 	}
 
-	private String calculate(double score){
-		if(score < 1){
+	private String calculate(double score) {
+		if (score < 1) {
 			return "benign";
-		}else if(score >= 1.5){
+		} else if (score >= 1.5) {
 			return "malicious";
-		}
-		else{
+		} else {
 			return "suspicious";
 		}
 	}
