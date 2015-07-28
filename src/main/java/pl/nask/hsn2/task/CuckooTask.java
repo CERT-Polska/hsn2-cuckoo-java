@@ -64,6 +64,8 @@ public class CuckooTask implements Task {
 	private boolean save_screenshots = true;
 	private boolean fail_on_error = false;
 	private int timeout = 1200;
+	private int retry = 3;
+	private int retry_wait = 5;
 	private ParametersWrapper parameters;
 	private String cuckooProcPath;
 	private CuckooRESTConnector cuckooConector;
@@ -89,6 +91,8 @@ public class CuckooTask implements Task {
 		this.save_screenshots = parameters.getBoolean("save_screenshots", save_screenshots);
 		this.fail_on_error = parameters.getBoolean("fail_on_error", fail_on_error);
 		this.timeout = parameters.getInt("timeout", timeout);
+		this.retry = parameters.getInt("retry", retry);
+		this.retry_wait = parameters.getInt("retry_wait", retry_wait);
 		extractCuckooParam("timeout", cuckooParams);
 		extractCuckooParam("priority", cuckooParams);
 		extractCuckooParam("package", cuckooParams);
@@ -117,20 +121,40 @@ public class CuckooTask implements Task {
 	public void process() throws ParameterException, ResourceException, StorageException, InputDataException {
 		Long contentId = data.getReferenceId("content");
 
-		try {
-			if (contentId != null) {
-				File file = downloadFile(contentId);
-				cuckooTaskId = cuckooConector.sendFile(file, cuckooParams);
-			} else {
-				String urlForProc = data.getUrlForProcessing();
-				cuckooTaskId = cuckooConector.sendURL(urlForProc, cuckooParams);
-			}
-		} catch (CuckooException e) {
-			if (fail_on_error) {
-				throw new ResourceException(e.getMessage(), e);
-			} else {
-				jobContext.addAttribute("cuckoo_error", e.getMessage());
-				return;
+		boolean sent = false;
+		int retries = 0;
+		while (!sent) {
+			try {
+				if (contentId != null) {
+					File file = downloadFile(contentId);
+					cuckooTaskId = cuckooConector.sendFile(file, cuckooParams);
+				} else {
+					String urlForProc = data.getUrlForProcessing();
+					cuckooTaskId = cuckooConector.sendURL(urlForProc, cuckooParams);
+				}
+				sent = true;
+			} catch (CuckooException e) {
+				String msg = e.getMessage();
+				if (this.retry > 0 && retries < this.retry) {
+					LOGGER.warn("{} - retry in {} mins...", msg, this.retry_wait);
+					retries++;
+					try {
+						TimeUnit.MINUTES.sleep(retry_wait);
+					} catch (InterruptedException ie) {
+						sent = true;
+						return;
+					}
+					LOGGER.debug("Retrying ({})...", retries);
+					//continue;
+				} else {
+					LOGGER.error("{} - retry limit ({}) exceeded, aborting...", msg, this.retry);
+					if (fail_on_error) {
+						throw new ResourceException(e.getMessage(), e);
+					} else {
+						jobContext.addAttribute("cuckoo_error", msg);
+						return;
+					}
+				}
 			}
 		}
 
