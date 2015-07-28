@@ -63,7 +63,6 @@ public class CuckooTask implements Task {
 	private boolean save_report_html = false;
 	private boolean save_screenshots = true;
 	private boolean fail_on_error = false;
-	private int timeout = 1200;
 	private int retry = 3;
 	private int retry_wait = 5;
 	private ParametersWrapper parameters;
@@ -90,7 +89,6 @@ public class CuckooTask implements Task {
 		this.save_report_html = parameters.getBoolean("save_report_html", save_report_html);
 		this.save_screenshots = parameters.getBoolean("save_screenshots", save_screenshots);
 		this.fail_on_error = parameters.getBoolean("fail_on_error", fail_on_error);
-		this.timeout = parameters.getInt("timeout", timeout);
 		this.retry = parameters.getInt("retry", retry);
 		this.retry_wait = parameters.getInt("retry_wait", retry_wait);
 		extractCuckooParam("timeout", cuckooParams);
@@ -159,25 +157,13 @@ public class CuckooTask implements Task {
 		}
 
 		boolean done = false;
-		int waited = 0;
 		while (!done) {
 			try {
 				TimeUnit.SECONDS.sleep(30);
-				waited += 30;
 				done = isTaskDone();
 			} catch (InterruptedException e) {
 				done = true;
 				return;
-			}
-
-			if (timeout > 0 && waited >= timeout) {
-				done = true;
-				if (fail_on_error) {
-					throw new ResourceException("Task processing timeout");
-				} else {
-					jobContext.addAttribute("cuckoo_error", "Task processing timeout");
-					return;
-				}
 			}
 		}
 
