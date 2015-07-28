@@ -146,7 +146,7 @@ public class CuckooTask implements Task {
 				return;
 			}
 
-			if (waited >= timeout) {
+			if (timeout > 0 && waited >= timeout) {
 				done = true;
 				if (fail_on_error) {
 					throw new ResourceException("Task processing timeout");
