@@ -21,6 +21,7 @@ package pl.nask.hsn2.task;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -237,8 +238,14 @@ public class CuckooTask implements Task {
 	private void savePcap() throws StorageException, ResourceException {
 		try (CuckooConnection conn = cuckooConector.getPcapAsStream(cuckooTaskId)) {
 			LOGGER.info("Saving PCAP file, status from cuckoo: " + conn.getResultStatusCode());
-			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
+			InputStream is = conn.getBodyAsInputStream();
+			long refId = jobContext.saveInDataStore(is);
 			jobContext.addReference("cuckoo_pcap", refId);
+
+			String md5 = DigestUtils.md5Hex(IOUtils.toByteArray(is));
+			String sha1 = DigestUtils.shaHex(IOUtils.toByteArray(is));
+			jobContext.addAttribute("cuckoo_pcap_md5", md5);
+			jobContext.addAttribute("cuckoo_pcap_sha1", sha1);
 		} catch (CuckooException e) {
 			if (fail_on_error) {
 				throw new ResourceException(e.getMessage(), e);
