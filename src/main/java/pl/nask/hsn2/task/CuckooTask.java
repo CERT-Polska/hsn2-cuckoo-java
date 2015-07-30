@@ -239,11 +239,11 @@ public class CuckooTask implements Task {
 		try (CuckooConnection conn = cuckooConector.getPcapAsStream(cuckooTaskId)) {
 			LOGGER.info("Saving PCAP file, status from cuckoo: " + conn.getResultStatusCode());
 			InputStream is = conn.getBodyAsInputStream();
-			long refId = jobContext.saveInDataStore(is);
-			jobContext.addReference("cuckoo_pcap", refId);
-
 			String md5 = DigestUtils.md5Hex(IOUtils.toByteArray(is));
 			String sha1 = DigestUtils.shaHex(IOUtils.toByteArray(is));
+			long refId = jobContext.saveInDataStore(is);
+
+			jobContext.addReference("cuckoo_pcap", refId);
 			jobContext.addAttribute("cuckoo_pcap_md5", md5);
 			jobContext.addAttribute("cuckoo_pcap_sha1", sha1);
 		} catch (CuckooException e) {
