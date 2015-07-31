@@ -20,8 +20,12 @@
 package pl.nask.hsn2.task;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -238,13 +242,11 @@ public class CuckooTask implements Task {
 	private void savePcap() throws StorageException, ResourceException {
 		try (CuckooConnection conn = cuckooConector.getPcapAsStream(cuckooTaskId)) {
 			LOGGER.info("Saving PCAP file, status from cuckoo: " + conn.getResultStatusCode());
-			InputStream is = conn.getBodyAsInputStream();
-			is.mark(Integer.MAX_VALUE);
-			String md5 = DigestUtils.md5Hex(IOUtils.toByteArray(is));
-			is.reset();
-			String sha1 = DigestUtils.shaHex(IOUtils.toByteArray(is));
-			is.reset();
-			long refId = jobContext.saveInDataStore(is);
+			Path tempFile = copyToTempFile(conn.getBodyAsInputStream());
+			String md5 = DigestUtils.md5Hex(Files.readAllBytes(tempFile));
+			String sha1 = DigestUtils.shaHex(Files.readAllBytes(tempFile));
+			long refId = jobContext.saveInDataStore(new FileInputStream(tempFile.toFile()));
+			tempFile.toFile().delete();
 
 			jobContext.addReference("cuckoo_pcap", refId);
 			jobContext.addAttribute("cuckoo_pcap_md5", md5);
@@ -257,7 +259,7 @@ public class CuckooTask implements Task {
 				return;
 			}
 		} catch (IOException e) {
-			LOGGER.warn("Can not close connection.", e);
+			LOGGER.warn("Cannot store PCAP file", e);
 		}
 	}
 
@@ -347,5 +349,12 @@ public class CuckooTask implements Task {
 		} else {
 			return "suspicious";
 		}
+	}
+
+	private Path copyToTempFile(InputStream is) throws IOException {
+		Path tempFile = Files.createTempFile(jobContext.getJobId() + "_" + jobContext.getReqId(), "_cuckoo_pcap");
+		Files.copy(is, tempFile, StandardCopyOption.REPLACE_EXISTING);
+		is.close();
+		return tempFile;
 	}
 }
