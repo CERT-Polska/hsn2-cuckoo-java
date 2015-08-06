@@ -23,6 +23,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -132,7 +135,7 @@ public class CuckooTask implements Task {
 					File file = downloadFile(contentId);
 					cuckooTaskId = cuckooConector.sendFile(file, cuckooParams);
 				} else {
-					String urlForProc = data.getUrlForProcessing();
+					String urlForProc = prepareUrlForProcessing();
 					cuckooTaskId = cuckooConector.sendURL(urlForProc, cuckooParams);
 				}
 				sent = true;
@@ -152,11 +155,20 @@ public class CuckooTask implements Task {
 				} else {
 					LOGGER.error("{} - retry limit ({}) exceeded, aborting...", msg, this.retry);
 					if (fail_on_error) {
-						throw new ResourceException(e.getMessage(), e);
+						throw new ResourceException("Cannot connect to Cuckoo: " + msg, e);
 					} else {
-						jobContext.addAttribute("cuckoo_error", msg);
+						jobContext.addAttribute("cuckoo_error", "Cannot connect to Cuckoo: " + msg);
 						return;
 					}
+				}
+			} catch (JSONException e) {
+				String msg = e.getMessage();
+				LOGGER.error("Cuckoo rejected the task: {}", msg);
+				if (fail_on_error) {
+					throw new ResourceException("Cuckoo rejected the task: " + msg, e);
+				} else {
+					jobContext.addAttribute("cuckoo_error", "Cuckoo rejected the task: " + msg);
+					return;
 				}
 			}
 		}
@@ -188,6 +200,27 @@ public class CuckooTask implements Task {
 		if (cleanJobData) {
 			cuckooConector.deleteTaskData(cuckooTaskId);
 		}
+	}
+
+	private String prepareUrlForProcessing() {
+		String urlForProc = data.getUrlForProcessing();
+		try {
+			URI.create(urlForProc);
+		} catch (IllegalArgumentException e) {
+			LOGGER.info("Trying to encode URL: {}", e.getMessage());
+			int index = urlForProc.indexOf('?');
+			if (index != -1 && index + 1 < urlForProc.length()) {
+				String addr = urlForProc.substring(0, index + 1);
+				String query = urlForProc.substring(index + 1);
+				try {
+					urlForProc = addr + URLEncoder.encode(query, "UTF-8");
+				} catch (UnsupportedEncodingException ex) {
+					// it should never happen
+					LOGGER.error(ex.getMessage());
+				}
+			}
+		}
+		return urlForProc;
 	}
 
 	private File downloadFile(Long contentId) throws StorageException, ResourceException {
