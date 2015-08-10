@@ -326,7 +326,7 @@ public class CuckooTask implements Task {
 			}
 		}
 		String status = taskInfo.getString("status");
-		if ("reported".equals(status)) {
+		if ("reported".equals(status) || "completed".equals(status)) {
 			jobContext.addAttribute("cuckoo_time_start", taskInfo.getString("started_on"));
 			try {
 				jobContext.addAttribute("cuckoo_time_stop", taskInfo.getString("completed_on"));
