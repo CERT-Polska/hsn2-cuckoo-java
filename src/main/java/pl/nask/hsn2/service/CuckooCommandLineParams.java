@@ -40,7 +40,7 @@ public class CuckooCommandLineParams extends CommandLineParams {
 	}
 	
 	@Override
-	protected void initDefaults() {
+	protected final void initDefaults() {
 		super.initDefaults();
 		setDefaultServiceNameAndQueueName("cuckoo");
 		setDefaultValue(CUCKOO_ADDRESS, "http://localhost:1337");
@@ -48,20 +48,20 @@ public class CuckooCommandLineParams extends CommandLineParams {
 		setDefaultValue(CLEAN_JOB_DATA, "true");
 	}
 	
-	public String getCuckooAdress(){
+	public final String getCuckooAdress(){
 		return getOptionValue(CUCKOO_ADDRESS);
 	}
 	
-	public String getCuckooProcPath(){
+	public final String getCuckooProcPath(){
 		return getOptionValue(CUCKOO_PROC_PATH);
 	}
 	
-	public boolean isCleanJobData() {
+	public final boolean isCleanJobData() {
 		return "true".equalsIgnoreCase(getOptionValue(CLEAN_JOB_DATA));
 	}
 	
 	@Override
-	protected void validate(){
+	protected final void validate(){
 		super.validate();
 		String msg = "";
 		if (!new File(getCuckooProcPath()).exists()){

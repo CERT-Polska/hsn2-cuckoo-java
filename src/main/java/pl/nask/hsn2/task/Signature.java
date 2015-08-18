@@ -29,46 +29,46 @@ public class Signature<T>{// extends SignatureData> {
 	private List<T> data; 
 	private String name;
 	
-	public List<String> getFamilies() {
+	public final List<String> getFamilies() {
 		return families;
 	}
-	public void setFamilies(List<String> families) {
+	public final void setFamilies(List<String> families) {
 		this.families = families;
 	}
-	public String getDescription() {
+	public final String getDescription() {
 		return description;
 	}
-	public void setDescription(String description) {
+	public final void setDescription(String description) {
 		this.description = description;
 	}
-	public int getSeverity() {
+	public final int getSeverity() {
 		return severity;
 	}
-	public void setSeverity(int severity) {
+	public final void setSeverity(int severity) {
 		this.severity = severity;
 	}
-	public List<String> getReferences() {
+	public final List<String> getReferences() {
 		return references;
 	}
-	public void setReferences(List<String> references) {
+	public final void setReferences(List<String> references) {
 		this.references = references;
 	}
-	public boolean isAlert() {
+	public final boolean isAlert() {
 		return alert;
 	}
-	public void setAlert(boolean alert) {
+	public final void setAlert(boolean alert) {
 		this.alert = alert;
 	}
-	public List<T> getData() {
+	public final List<T> getData() {
 		return data;
 	}
-	public void setData(List<T> data) {
+	public final void setData(List<T> data) {
 		this.data = data;
 	}
-	public String getName() {
+	public final String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	public final void setName(String name) {
 		this.name = name;
 	}
 }

@@ -142,7 +142,7 @@ public class CuckooTaskTest {
 			}
 		};
 
-		Task task = new CuckooTask(jobContext, parameters, data, "/tmp", true);
+		Task task = new CuckooTask(jobContext, parameters, data, System.getProperty("java.io.tmpdir"), true);
 		task.process();
 	}
 

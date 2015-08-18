@@ -21,24 +21,22 @@ public class Process implements Comparable<Process> {
 		score = Rating.getValue(signatureName);
 	}
 	
-	public String getSignatureNamesAsString() {
-		String out = "";
-		boolean next = false;
+	public final String getSignatureNamesAsString() {
+		StringBuffer out = new StringBuffer("");
 		for(String name : signatureNames){
-			if(next){
-				out += ", ";
+			if(out.length() > 0){
+				out.append(", ");
 			}
-			next = true;
-			out += name;
+			out.append(name);
 		}
-		return out;
+		return out.toString();
 	}
 	
-	public double getScore() {
+	public final double getScore() {
 		return score;
 	}
 
-	public void addSignature(String name){
+	public final void addSignature(String name){
 		try{
 			double d = Rating.getValue(name);
 			if(signatureNames.add(name)){
@@ -51,12 +49,12 @@ public class Process implements Comparable<Process> {
 		}
 	}
 
-	public Long getId(){
+	public final Long getId(){
 		return id;
 	}
 	
 	@Override
-	public int compareTo(Process o) {
+	public final int compareTo(Process o) {
 		if(score < o.score){
 			return -1;
 		}

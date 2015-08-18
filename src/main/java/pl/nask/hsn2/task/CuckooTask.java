@@ -60,19 +60,22 @@ import pl.nask.hsn2.wrappers.ParametersWrapper;
 public class CuckooTask implements Task {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CuckooTask.class);
-
+	private static final String ERROR_KEY = "cuckoo_error";
+	private static final double THRESHOLD_SUSPICIOUS = 1.0;
+	private static final double THRESHOLD_MALICIOUS = 1.5;
+	
 	private final TaskContext jobContext;
 	private final ObjectDataWrapper data;
 
 	private long cuckooTaskId;
 
-	private boolean save_pcap = false;
-	private boolean save_report_json = true;
-	private boolean save_report_html = false;
-	private boolean save_screenshots = true;
-	private boolean fail_on_error = false;
+	private boolean savePcap = false;
+	private boolean saveReportJson = true;
+	private boolean saveReportHtml = false;
+	private boolean saveScreenshots = true;
+	private boolean failOnError = false;
 	private int retry = 3;
-	private int retry_wait = 5;
+	private int retryWait = 5;
 	private ParametersWrapper parameters;
 	private String cuckooProcPath;
 	private CuckooRESTConnector cuckooConector;
@@ -92,13 +95,13 @@ public class CuckooTask implements Task {
 	}
 
 	private void applyParameters() throws ParameterException {
-		this.save_pcap = parameters.getBoolean("save_pcap", save_pcap);
-		this.save_report_json = parameters.getBoolean("save_report_json", save_report_json);
-		this.save_report_html = parameters.getBoolean("save_report_html", save_report_html);
-		this.save_screenshots = parameters.getBoolean("save_screenshots", save_screenshots);
-		this.fail_on_error = parameters.getBoolean("fail_on_error", fail_on_error);
+		this.savePcap = parameters.getBoolean("save_pcap", savePcap);
+		this.saveReportJson = parameters.getBoolean("save_report_json", saveReportJson);
+		this.saveReportHtml = parameters.getBoolean("save_report_html", saveReportHtml);
+		this.saveScreenshots = parameters.getBoolean("save_screenshots", saveScreenshots);
+		this.failOnError = parameters.getBoolean("fail_on_error", failOnError);
 		this.retry = parameters.getInt("retry", retry);
-		this.retry_wait = parameters.getInt("retry_wait", retry_wait);
+		this.retryWait = parameters.getInt("retry_wait", retryWait);
 		extractCuckooParam("timeout", cuckooParams);
 		extractCuckooParam("priority", cuckooParams);
 		extractCuckooParam("package", cuckooParams);
@@ -120,11 +123,11 @@ public class CuckooTask implements Task {
 		}
 	}
 
-	public boolean takesMuchTime() {
+	public final boolean takesMuchTime() {
 		return true;
 	}
 
-	public void process() throws ParameterException, ResourceException, StorageException, InputDataException {
+	public final void process() throws ParameterException, ResourceException, StorageException, InputDataException {
 		Long contentId = data.getReferenceId("content");
 
 		boolean sent = false;
@@ -142,10 +145,10 @@ public class CuckooTask implements Task {
 			} catch (CuckooException e) {
 				String msg = e.getMessage();
 				if (this.retry > 0 && retries < this.retry) {
-					LOGGER.warn("{} - retry in {} mins...", msg, this.retry_wait);
+					LOGGER.warn("{} - retry in {} mins...", msg, this.retryWait);
 					retries++;
 					try {
-						TimeUnit.MINUTES.sleep(retry_wait);
+						TimeUnit.MINUTES.sleep(retryWait);
 					} catch (InterruptedException ie) {
 						sent = true;
 						return;
@@ -154,20 +157,20 @@ public class CuckooTask implements Task {
 					//continue;
 				} else {
 					LOGGER.error("{} - retry limit ({}) exceeded, aborting...", msg, this.retry);
-					if (fail_on_error) {
+					if (failOnError) {
 						throw new ResourceException("Cannot connect to Cuckoo: " + msg, e);
 					} else {
-						jobContext.addAttribute("cuckoo_error", "Cannot connect to Cuckoo: " + msg);
+						jobContext.addAttribute(ERROR_KEY, "Cannot connect to Cuckoo: " + msg);
 						return;
 					}
 				}
 			} catch (JSONException e) {
 				String msg = e.getMessage();
 				LOGGER.error("Cuckoo rejected the task: {}", msg);
-				if (fail_on_error) {
+				if (failOnError) {
 					throw new ResourceException("Cuckoo rejected the task: " + msg, e);
 				} else {
-					jobContext.addAttribute("cuckoo_error", "Cuckoo rejected the task: " + msg);
+					jobContext.addAttribute(ERROR_KEY, "Cuckoo rejected the task: " + msg);
 					return;
 				}
 			}
@@ -185,16 +188,16 @@ public class CuckooTask implements Task {
 		}
 
 		processDataAndCalculateRating();
-		if (save_report_html) {
+		if (saveReportHtml) {
 			saveHtmlReport();
 		}
-		if (save_report_json) {
+		if (saveReportJson) {
 			saveJsonReport();
 		}
-		if (save_pcap) {
+		if (savePcap) {
 			savePcap();
 		}
-		if (save_screenshots) {
+		if (saveScreenshots) {
 			saveScreenshots();
 		}
 		if (cleanJobData) {
@@ -244,10 +247,10 @@ public class CuckooTask implements Task {
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
 			jobContext.addReference("cuckoo_report_html", refId);
 		} catch (CuckooException e) {
-			if (fail_on_error) {
+			if (failOnError) {
 				throw new ResourceException(e.getMessage(), e);
 			} else {
-				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				jobContext.addAttribute(ERROR_KEY, e.getMessage());
 				return;
 			}
 		} catch (IOException e) {
@@ -261,10 +264,10 @@ public class CuckooTask implements Task {
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
 			jobContext.addReference("cuckoo_report_json", refId);
 		} catch (CuckooException e) {
-			if (fail_on_error) {
+			if (failOnError) {
 				throw new ResourceException(e.getMessage(), e);
 			} else {
-				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				jobContext.addAttribute(ERROR_KEY, e.getMessage());
 				return;
 			}
 		} catch (IOException e) {
@@ -279,16 +282,18 @@ public class CuckooTask implements Task {
 			String md5 = DigestUtils.md5Hex(Files.readAllBytes(tempFile));
 			String sha1 = DigestUtils.shaHex(Files.readAllBytes(tempFile));
 			long refId = jobContext.saveInDataStore(new FileInputStream(tempFile.toFile()));
-			tempFile.toFile().delete();
+			if (!tempFile.toFile().delete()) {
+				LOGGER.warn("Couldn't delete the file: {}", tempFile);
+			}
 
 			jobContext.addReference("cuckoo_pcap", refId);
 			jobContext.addAttribute("cuckoo_pcap_md5", md5);
 			jobContext.addAttribute("cuckoo_pcap_sha1", sha1);
 		} catch (CuckooException e) {
-			if (fail_on_error) {
+			if (failOnError) {
 				throw new ResourceException(e.getMessage(), e);
 			} else {
-				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				jobContext.addAttribute(ERROR_KEY, e.getMessage());
 				return;
 			}
 		} catch (IOException e) {
@@ -302,10 +307,10 @@ public class CuckooTask implements Task {
 			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
 			jobContext.addReference("cuckoo_screenshot", refId);
 		} catch (CuckooException e) {
-			if (fail_on_error) {
+			if (failOnError) {
 				throw new ResourceException(e.getMessage(), e);
 			} else {
-				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				jobContext.addAttribute(ERROR_KEY, e.getMessage());
 				return;
 			}
 		} catch (IOException e) {
@@ -318,10 +323,10 @@ public class CuckooTask implements Task {
 		try {
 			taskInfo = cuckooConector.getTaskInfo(cuckooTaskId);
 		} catch (CuckooException e) {
-			if (fail_on_error) {
+			if (failOnError) {
 				throw new ResourceException(e.getMessage(), e);
 			} else {
-				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				jobContext.addAttribute(ERROR_KEY, e.getMessage());
 				return true;
 			}
 		}
@@ -348,40 +353,40 @@ public class CuckooTask implements Task {
 		try (CuckooConnection conn = cuckooConector.getJsonReportAsStream(cuckooTaskId)) {
 			sigProcessor.process(conn.getBodyAsInputStream());
 		} catch (IOException | CuckooException e) {
-			if (fail_on_error) {
+			if (failOnError) {
 				throw new ResourceException(e.getMessage(), e);
 			} else {
-				jobContext.addAttribute("cuckoo_error", e.getMessage());
+				jobContext.addAttribute(ERROR_KEY, e.getMessage());
 				return;
 			}
 		}
 		Process process = sigProcessor.getMaxRateProcess();
-		String reason = "";
+		StringBuffer reason = new StringBuffer("");
 		double score = 0.0;
 		if (process != null) {
-			reason = process.getSignatureNamesAsString();
+			reason.append(process.getSignatureNamesAsString());
 			score = process.getScore();
 		}
 		for (Entry<String, Double> entry : sigProcessor.getAdditionalScores().entrySet()) {
 			score += entry.getValue();
-			if (!"".equals(reason)) {
-				reason += ", ";
+			if (reason.length() > 0) {
+				reason.append(", ");
 			}
-			reason += entry.getKey();
+			reason.append(entry.getKey());
 		}
 
 		jobContext.addAttribute("cuckoo_classification", calculate(score));
-		jobContext.addAttribute("cuckoo_classification_reason", reason);
+		jobContext.addAttribute("cuckoo_classification_reason", reason.toString());
 	}
 
 	private String calculate(double score) {
-		if (score < 1) {
-			return "benign";
-		} else if (score >= 1.5) {
+		if (score >= THRESHOLD_MALICIOUS) {
 			return "malicious";
-		} else {
+		}
+		if (score >= THRESHOLD_SUSPICIOUS) {
 			return "suspicious";
 		}
+		return "benign";
 	}
 
 	private Path copyToTempFile(InputStream is) throws IOException {

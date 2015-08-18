@@ -59,17 +59,17 @@ public class CuckooRESTConnector {
 		}
 	}
 	
-	public void deleteTaskData(long cuckooTaskId) {
+	public final void deleteTaskData(long cuckooTaskId) {
 		try(CuckooConnection connection = connect(cuckooURL + DELETE_TASK + cuckooTaskId)){
 			int status = connection.getResultStatusCode();
 			switch (status) {
-			case 200: 
+			case HttpStatus.SC_OK: 
 				LOGGER.info("Cuckoo: task data deleted: " + cuckooTaskId);
 				break;
-			case 404:
+			case HttpStatus.SC_NOT_FOUND:
 				LOGGER.warn("Cuckoo: error deleting task data, task not found: " + cuckooTaskId);
 				break;
-			case 500:
+			case HttpStatus.SC_INTERNAL_SERVER_ERROR:
 				LOGGER.warn("Cuckoo: error deleting task data, could not delete task data: " + cuckooTaskId);
 				break;
 			default:
@@ -82,7 +82,7 @@ public class CuckooRESTConnector {
 		}
 	}
 	
-	public long sendFile(File file, Set<NameValuePair> cuckooParams) throws CuckooException, ResourceException{
+	public final long sendFile(File file, Set<NameValuePair> cuckooParams) throws CuckooException, ResourceException{
 		
 		PostMethod post = new PostMethod(cuckooURL + SEND_FILE_TASK);
 		try {
@@ -106,7 +106,7 @@ public class CuckooRESTConnector {
 		
 	}
 
-	public long sendURL(String urlForProc, Set<NameValuePair> cuckooParams) throws CuckooException {
+	public final long sendURL(String urlForProc, Set<NameValuePair> cuckooParams) throws CuckooException {
 		PostMethod post = new PostMethod(cuckooURL + SEND_URL_TASK);
 		post.addParameter(new NameValuePair("url", urlForProc));
 		for (NameValuePair pair : cuckooParams){
@@ -136,23 +136,23 @@ public class CuckooRESTConnector {
 		}
 	}
 	
-	public CuckooConnection getJsonReportAsStream(long cuckooTaskId) throws CuckooException{
+	public final CuckooConnection getJsonReportAsStream(long cuckooTaskId) throws CuckooException{
 		return getReportAsStream(cuckooTaskId, "json");
 	}
 	
-	public CuckooConnection getHtmlReportAsStream(long cuckooTaskId) throws CuckooException{
+	public final CuckooConnection getHtmlReportAsStream(long cuckooTaskId) throws CuckooException{
 		return getReportAsStream(cuckooTaskId, "html");
 	}
 	
-	public CuckooConnection getPcapAsStream(long cuckooTaskId) throws CuckooException{
+	public final CuckooConnection getPcapAsStream(long cuckooTaskId) throws CuckooException{
 		return connect(cuckooURL + GET_PCAP + cuckooTaskId);
 	}
 	
-	public CuckooConnection getScreenshotsAsStream(long cuckooTaskId) throws CuckooException{
+	public final CuckooConnection getScreenshotsAsStream(long cuckooTaskId) throws CuckooException{
 		return connect(cuckooURL + GET_SCREENSHOTS + cuckooTaskId);
 	}
 	
-	public JSONObject getTaskInfo(long cuckooTaskId) throws CuckooException{
+	public final JSONObject getTaskInfo(long cuckooTaskId) throws CuckooException{
 		try(CuckooConnection connection = connect(cuckooURL + CHECK_TASK + cuckooTaskId)){
 			String result = connection.getBodyAsString();
 			if (result != null){
