@@ -46,19 +46,19 @@ public class CuckooService extends ServiceMain {
 	}
 	
 	@Override
-	protected void prepareService() {
+	protected final void prepareService() {
 		CuckooRESTConnector.setCuckooURL(((CuckooCommandLineParams)getCommandLineParams()).getCuckooAdress());
 
 	}
 
 	@Override
-	protected Class<? extends TaskFactory> initializeTaskFactory() {
+	protected final Class<? extends TaskFactory> initializeTaskFactory() {
 		CuckooServiceTaskFactory.prepereForAllThreads((CuckooCommandLineParams)getCommandLineParams());
 		return CuckooServiceTaskFactory.class;
 	}
 	
 	@Override
-	protected CommandLineParams newCommandLineParams() {
+	protected final CommandLineParams newCommandLineParams() {
 		return new CuckooCommandLineParams();
 	}
 }

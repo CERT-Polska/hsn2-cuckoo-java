@@ -33,7 +33,7 @@ public class CuckooServiceTaskFactory implements TaskFactory {
 		CuckooServiceTaskFactory.cmd = cmd;
 	}
 
-	public Task newTask(TaskContext jobContext, ParametersWrapper parameters, ObjectDataWrapper data) throws ParameterException {
+	public final Task newTask(TaskContext jobContext, ParametersWrapper parameters, ObjectDataWrapper data) throws ParameterException {
 		return new CuckooTask(jobContext, parameters, data, cmd.getCuckooProcPath(), cmd.isCleanJobData());
 	}
 }

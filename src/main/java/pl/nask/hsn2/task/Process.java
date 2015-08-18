@@ -65,4 +65,16 @@ public class Process implements Comparable<Process> {
 			return 0;
 		}
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj instanceof Process) {
+			Process p = (Process) obj;
+			return score == p.score;
+		}
+		return false;
+	}
 }

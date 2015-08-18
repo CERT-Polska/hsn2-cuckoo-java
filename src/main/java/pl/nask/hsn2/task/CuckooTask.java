@@ -63,6 +63,9 @@ public class CuckooTask implements Task {
 	private static final String ERROR_KEY = "cuckoo_error";
 	private static final double THRESHOLD_SUSPICIOUS = 1.0;
 	private static final double THRESHOLD_MALICIOUS = 1.5;
+	private static final int DEFAULT_RETRIES = 3;
+	private static final int DEFAULT_RETRY_WAIT = 5;
+	private static final int DEFAULT_ANALYSIS_WAIT_SECS = 30;
 	
 	private final TaskContext jobContext;
 	private final ObjectDataWrapper data;
@@ -74,8 +77,8 @@ public class CuckooTask implements Task {
 	private boolean saveReportHtml = false;
 	private boolean saveScreenshots = true;
 	private boolean failOnError = false;
-	private int retry = 3;
-	private int retryWait = 5;
+	private int retry = DEFAULT_RETRIES;
+	private int retryWait = DEFAULT_RETRY_WAIT;
 	private ParametersWrapper parameters;
 	private String cuckooProcPath;
 	private CuckooRESTConnector cuckooConector;
@@ -179,7 +182,7 @@ public class CuckooTask implements Task {
 		boolean done = false;
 		while (!done) {
 			try {
-				TimeUnit.SECONDS.sleep(30);
+				TimeUnit.SECONDS.sleep(DEFAULT_ANALYSIS_WAIT_SECS);
 				done = isTaskDone();
 			} catch (InterruptedException e) {
 				done = true;

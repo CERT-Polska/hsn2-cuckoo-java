@@ -32,7 +32,7 @@ public class CuckooCommandLineParams extends CommandLineParams {
 	private static final OptionNameWrapper CLEAN_JOB_DATA = new OptionNameWrapper("clean", "cleanupJob");
 	private static final Logger LOGGER = LoggerFactory.getLogger(CuckooCommandLineParams.class);
 	@Override
-	public void initOptions() {
+	public final void initOptions() {
 		super.initOptions();
 		addOption(CUCKOO_ADDRESS, "url", "API server address");
 		addOption(CUCKOO_PROC_PATH, "path", "Path for processing files");

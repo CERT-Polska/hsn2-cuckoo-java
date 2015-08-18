@@ -37,17 +37,17 @@ public class CuckooConnection implements Closeable{
 		this.url = url;
 	}
 	
-	public InputStream getBodyAsInputStream(){
+	public final InputStream getBodyAsInputStream(){
 		return in;
 	}
 	
 	@Override
-	public void close() throws IOException {
+	public final void close() throws IOException {
 		IOUtils.closeQuietly(in);
 		getMethod.releaseConnection();
 	}
 
-	public void connect() throws CuckooException{
+	public final void connect() throws CuckooException{
 		try {
 			getMethod = new GetMethod(url);
 			HttpClient client = new HttpClient();
@@ -61,7 +61,7 @@ public class CuckooConnection implements Closeable{
 		}
 	}
 
-	public String getBodyAsString() throws CuckooException {
+	public final String getBodyAsString() throws CuckooException {
 		try {
 			return getMethod.getResponseBodyAsString();
 		} catch (IOException e) {
@@ -69,7 +69,7 @@ public class CuckooConnection implements Closeable{
 		}
 	}
 	
-	public int getResultStatusCode() {
+	public final int getResultStatusCode() {
 		return getMethod.getStatusCode();
 	}
 }

@@ -41,7 +41,7 @@ public class SignatureProcessor {
 	public SignatureProcessor() {
 	}
 	
-	public void process(InputStream stream) throws IOException {
+	public final void process(InputStream stream) throws IOException {
 		JsonReader reader = new JsonReader(new InputStreamReader(stream));
 		reader.beginObject();
 		while (reader.hasNext()){
@@ -49,7 +49,7 @@ public class SignatureProcessor {
 			if ("signatures".equals(name)){
 				reader.beginArray();
 				while (reader.hasNext()) {
-					Signature<Map<String,Object>> signature = new Gson().fromJson(reader, new Signature<>().getClass());
+					Signature<Map<String,Object>> signature = new Gson().fromJson(reader, Signature.class);
 					extractData(signature);
 				}
 				reader.endArray();
@@ -87,13 +87,13 @@ public class SignatureProcessor {
 		}
 	}
 	
-	public Process getMaxRateProcess(){
+	public final Process getMaxRateProcess(){
 		Process[] processesList = dataWithPid.values().toArray(new Process[dataWithPid.size()]);
 		Arrays.sort(processesList);
 		return processesList.length == 0 ? null : processesList[0];
 	}
 	
-	public Map<String, Double> getAdditionalScores(){
+	public final Map<String, Double> getAdditionalScores(){
 		return data;
 	}
 }
