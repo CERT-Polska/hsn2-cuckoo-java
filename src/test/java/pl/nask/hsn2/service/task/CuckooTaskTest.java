@@ -165,6 +165,7 @@ public class CuckooTaskTest {
 				data.getUrlForProcessing(); result = "http://www.google.com/";
 				getMethod.getResponseBodyAsStream(); returns(CuckooException.class);
 				parameters.getBoolean("fail_on_error", false); result = false;
+				parameters.getBoolean("save_report_json", anyBoolean); result = true;
 
 				jobContext.addAttribute("cuckoo_error", anyString); times = 1;
 			}
@@ -180,6 +181,7 @@ public class CuckooTaskTest {
 				data.getUrlForProcessing(); result = "http://www.google.com/";
 				getMethod.getResponseBodyAsStream(); returns(CuckooException.class);
 				parameters.getBoolean("fail_on_error", false); result = true;
+				parameters.getBoolean("save_report_html", anyBoolean); result = true;
 
 				jobContext.addAttribute("cuckoo_error", anyString); times = 0;
 			}
