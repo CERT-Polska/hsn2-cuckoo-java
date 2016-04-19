@@ -12,11 +12,11 @@ import java.util.NoSuchElementException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Rating {
+public final class Rating {
 
 	private static Map<String,Double> rates = new HashMap<>();
 	private static final Logger LOGGER = LoggerFactory.getLogger(Rating.class);
-	
+
 	private Rating() {
 		// this class cannot be instantiated, it's utility class
 	}
@@ -32,14 +32,14 @@ public class Rating {
 			throw new IllegalStateException(e.getMessage(), e);
 		}
 	}
-	
-	public static double getValue(String name) throws NoSuchElementException {
+
+	public static double getValue(String name) {
 		Double value = rates.get(name);
 		if (value != null){
 			return value.doubleValue();
 		} else{
 			throw new NoSuchElementException("No rate for: "+ name);
 		}
-		
+
 	}
 }

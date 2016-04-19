@@ -66,7 +66,7 @@ public class CuckooTask implements Task {
 	private static final int DEFAULT_RETRIES = 3;
 	private static final int DEFAULT_RETRY_WAIT = 5;
 	private static final int DEFAULT_ANALYSIS_WAIT_SECS = 30;
-	
+
 	private final TaskContext jobContext;
 	private final ObjectDataWrapper data;
 
@@ -98,13 +98,13 @@ public class CuckooTask implements Task {
 	}
 
 	private void applyParameters() throws ParameterException {
-		this.savePcap = parameters.getBoolean("save_pcap", savePcap);
-		this.saveReportJson = parameters.getBoolean("save_report_json", saveReportJson);
-		this.saveReportHtml = parameters.getBoolean("save_report_html", saveReportHtml);
-		this.saveScreenshots = parameters.getBoolean("save_screenshots", saveScreenshots);
-		this.failOnError = parameters.getBoolean("fail_on_error", failOnError);
-		this.retry = parameters.getInt("retry", retry);
-		this.retryWait = parameters.getInt("retry_wait", retryWait);
+		savePcap = parameters.getBoolean("save_pcap", savePcap);
+		saveReportJson = parameters.getBoolean("save_report_json", saveReportJson);
+		saveReportHtml = parameters.getBoolean("save_report_html", saveReportHtml);
+		saveScreenshots = parameters.getBoolean("save_screenshots", saveScreenshots);
+		failOnError = parameters.getBoolean("fail_on_error", failOnError);
+		retry = parameters.getInt("retry", retry);
+		retryWait = parameters.getInt("retry_wait", retryWait);
 		extractCuckooParam("timeout", cuckooParams);
 		extractCuckooParam("priority", cuckooParams);
 		extractCuckooParam("package", cuckooParams);
@@ -147,8 +147,8 @@ public class CuckooTask implements Task {
 				sent = true;
 			} catch (CuckooException e) {
 				String msg = e.getMessage();
-				if (this.retry > 0 && retries < this.retry) {
-					LOGGER.warn("{} - retry in {} mins...", msg, this.retryWait);
+				if (retry > 0 && retries < retry) {
+					LOGGER.warn("{} - retry in {} mins...", msg, retryWait);
 					retries++;
 					try {
 						TimeUnit.MINUTES.sleep(retryWait);
@@ -159,7 +159,7 @@ public class CuckooTask implements Task {
 					LOGGER.debug("Retrying ({})...", retries);
 					//continue;
 				} else {
-					LOGGER.error("{} - retry limit ({}) exceeded, aborting...", msg, this.retry);
+					LOGGER.error("{} - retry limit ({}) exceeded, aborting...", msg, retry);
 					if (failOnError) {
 						throw new ResourceException("Cannot connect to Cuckoo: " + msg, e);
 					} else {
@@ -191,21 +191,13 @@ public class CuckooTask implements Task {
 		}
 
 		processDataAndCalculateRating();
-		if (saveReportHtml) {
-			saveHtmlReport();
-		}
-		if (saveReportJson) {
-			saveJsonReport();
-		}
-		if (savePcap) {
-			savePcap();
-		}
-		if (saveScreenshots) {
-			saveScreenshots();
-		}
-		if (cleanJobData) {
-			cuckooConector.deleteTaskData(cuckooTaskId);
-		}
+
+		saveHtmlReport();
+		saveJsonReport();
+		savePcap();
+		saveScreenshots();
+
+		cleanJobData();
 	}
 
 	private String prepareUrlForProcessing() {
@@ -246,78 +238,92 @@ public class CuckooTask implements Task {
 	}
 
 	private void saveHtmlReport() throws StorageException, ResourceException {
-		try (CuckooConnection conn = cuckooConector.getHtmlReportAsStream(cuckooTaskId)) {
-			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
-			jobContext.addReference("cuckoo_report_html", refId);
-		} catch (CuckooException e) {
-			if (failOnError) {
-				throw new ResourceException(e.getMessage(), e);
-			} else {
-				jobContext.addAttribute(ERROR_KEY, e.getMessage());
-				return;
+		if (saveReportHtml) {
+			try (CuckooConnection conn = cuckooConector.getHtmlReportAsStream(cuckooTaskId)) {
+				long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
+				jobContext.addReference("cuckoo_report_html", refId);
+			} catch (CuckooException e) {
+				if (failOnError) {
+					throw new ResourceException(e.getMessage(), e);
+				} else {
+					jobContext.addAttribute(ERROR_KEY, e.getMessage());
+					return;
+				}
+			} catch (IOException e) {
+				LOGGER.warn("Can not close connection.", e);
 			}
-		} catch (IOException e) {
-			LOGGER.warn("Can not close connection.", e);
 		}
 	}
 
 	private void saveJsonReport() throws StorageException, ResourceException {
-		try (CuckooConnection conn = cuckooConector.getJsonReportAsStream(cuckooTaskId)) {
-			LOGGER.info("Saving JSON report file, status from cuckoo: " + conn.getResultStatusCode());
-			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
-			jobContext.addReference("cuckoo_report_json", refId);
-		} catch (CuckooException e) {
-			if (failOnError) {
-				throw new ResourceException(e.getMessage(), e);
-			} else {
-				jobContext.addAttribute(ERROR_KEY, e.getMessage());
-				return;
+		if (saveReportJson) {
+			try (CuckooConnection conn = cuckooConector.getJsonReportAsStream(cuckooTaskId)) {
+				LOGGER.info("Saving JSON report file, status from cuckoo: " + conn.getResultStatusCode());
+				long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
+				jobContext.addReference("cuckoo_report_json", refId);
+			} catch (CuckooException e) {
+				if (failOnError) {
+					throw new ResourceException(e.getMessage(), e);
+				} else {
+					jobContext.addAttribute(ERROR_KEY, e.getMessage());
+					return;
+				}
+			} catch (IOException e) {
+				LOGGER.warn("Can not close connection.", e);
 			}
-		} catch (IOException e) {
-			LOGGER.warn("Can not close connection.", e);
 		}
 	}
 
 	private void savePcap() throws StorageException, ResourceException {
-		try (CuckooConnection conn = cuckooConector.getPcapAsStream(cuckooTaskId)) {
-			LOGGER.info("Saving PCAP file, status from cuckoo: " + conn.getResultStatusCode());
-			Path tempFile = copyToTempFile(conn.getBodyAsInputStream());
-			String md5 = DigestUtils.md5Hex(Files.readAllBytes(tempFile));
-			String sha1 = DigestUtils.shaHex(Files.readAllBytes(tempFile));
-			long refId = jobContext.saveInDataStore(new FileInputStream(tempFile.toFile()));
-			if (!tempFile.toFile().delete()) {
-				LOGGER.warn("Couldn't delete the file: {}", tempFile);
-			}
+		if (savePcap) {
+			try (CuckooConnection conn = cuckooConector.getPcapAsStream(cuckooTaskId)) {
+				LOGGER.info("Saving PCAP file, status from cuckoo: " + conn.getResultStatusCode());
+				Path tempFile = copyToTempFile(conn.getBodyAsInputStream());
+				String md5 = DigestUtils.md5Hex(Files.readAllBytes(tempFile));
+				String sha1 = DigestUtils.shaHex(Files.readAllBytes(tempFile));
+				long refId = jobContext.saveInDataStore(new FileInputStream(tempFile.toFile()));
+				if (!tempFile.toFile().delete()) {
+					LOGGER.warn("Couldn't delete the file: {}", tempFile);
+				}
 
-			jobContext.addReference("cuckoo_pcap", refId);
-			jobContext.addAttribute("cuckoo_pcap_md5", md5);
-			jobContext.addAttribute("cuckoo_pcap_sha1", sha1);
-		} catch (CuckooException e) {
-			if (failOnError) {
-				throw new ResourceException(e.getMessage(), e);
-			} else {
-				jobContext.addAttribute(ERROR_KEY, e.getMessage());
-				return;
+				jobContext.addReference("cuckoo_pcap", refId);
+				jobContext.addAttribute("cuckoo_pcap_md5", md5);
+				jobContext.addAttribute("cuckoo_pcap_sha1", sha1);
+			} catch (CuckooException e) {
+				if (failOnError) {
+					throw new ResourceException(e.getMessage(), e);
+				} else {
+					jobContext.addAttribute(ERROR_KEY, e.getMessage());
+					return;
+				}
+			} catch (IOException e) {
+				LOGGER.warn("Cannot store PCAP file", e);
 			}
-		} catch (IOException e) {
-			LOGGER.warn("Cannot store PCAP file", e);
 		}
 	}
 
 	private void saveScreenshots() throws StorageException, ResourceException {
-		try (CuckooConnection conn = cuckooConector.getScreenshotsAsStream(cuckooTaskId)) {
-			LOGGER.info("Saving screenshots, status from cuckoo: " + conn.getResultStatusCode());
-			long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
-			jobContext.addReference("cuckoo_screenshot", refId);
-		} catch (CuckooException e) {
-			if (failOnError) {
-				throw new ResourceException(e.getMessage(), e);
-			} else {
-				jobContext.addAttribute(ERROR_KEY, e.getMessage());
-				return;
+		if (saveScreenshots) {
+			try (CuckooConnection conn = cuckooConector.getScreenshotsAsStream(cuckooTaskId)) {
+				LOGGER.info("Saving screenshots, status from cuckoo: " + conn.getResultStatusCode());
+				long refId = jobContext.saveInDataStore(conn.getBodyAsInputStream());
+				jobContext.addReference("cuckoo_screenshot", refId);
+			} catch (CuckooException e) {
+				if (failOnError) {
+					throw new ResourceException(e.getMessage(), e);
+				} else {
+					jobContext.addAttribute(ERROR_KEY, e.getMessage());
+					return;
+				}
+			} catch (IOException e) {
+				LOGGER.warn("Can not close connection.", e);
 			}
-		} catch (IOException e) {
-			LOGGER.warn("Can not close connection.", e);
+		}
+	}
+
+	private void cleanJobData() {
+		if (cleanJobData) {
+			cuckooConector.deleteTaskData(cuckooTaskId);
 		}
 	}
 

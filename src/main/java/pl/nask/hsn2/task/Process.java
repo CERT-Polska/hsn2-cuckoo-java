@@ -14,13 +14,13 @@ public class Process implements Comparable<Process> {
 	private Set<String> signatureNames = new HashSet<>();
 	private Set<String> skipped = new HashSet<>();
 	private double score = 0.0;
-	
+
 	public Process(Long id, String signatureName) {
 		this.id = id;
 		signatureNames.add(signatureName);
 		score = Rating.getValue(signatureName);
 	}
-	
+
 	public final String getSignatureNamesAsString() {
 		StringBuffer out = new StringBuffer("");
 		for(String name : signatureNames){
@@ -31,7 +31,7 @@ public class Process implements Comparable<Process> {
 		}
 		return out.toString();
 	}
-	
+
 	public final double getScore() {
 		return score;
 	}
@@ -52,7 +52,7 @@ public class Process implements Comparable<Process> {
 	public final Long getId(){
 		return id;
 	}
-	
+
 	@Override
 	public final int compareTo(Process o) {
 		if(score < o.score){
@@ -65,9 +65,9 @@ public class Process implements Comparable<Process> {
 			return 0;
 		}
 	}
-	
+
 	@Override
-	public boolean equals(Object obj) {
+	public final boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
 		}
@@ -76,5 +76,11 @@ public class Process implements Comparable<Process> {
 			return score == p.score;
 		}
 		return false;
+	}
+
+	@Override
+	public final int hashCode() {
+		long bits = Double.doubleToLongBits(score);
+		return 31 * (int) (bits / 17);
 	}
 }
