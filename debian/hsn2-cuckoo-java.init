@@ -1,0 +1,32 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:               hsn2-cuckoo-java
+# Required-Start:
+# Required-Stop:
+# Default-Start:          2 3 4 5
+# Default-Stop:           0 1 6
+# Short-Description:      Start/Stop the HSN2 Cuckoo Java
+# Description:            Start/Stop the HSN2 Cuckoo Java daemon.
+### END INIT INFO
+
+NAME="HSN2 Cuckoo Java"
+HSN2_COMPONENT="cuckoo-java"
+MAINCLASS="pl.nask.hsn2.service.CuckooService"
+CONFFILE=/etc/hsn2/cuckoo.conf
+
+#HSN2_JMX_PORT=1110
+
+. /lib/hsn2/init-functions-java
+
+prepare_start() {
+	HSN2_COMPONENT_PARAMS="--connector ${BROKER_ADDRESS}
+		--dataStore http://${DATASTORE_ADDRESS} \
+		--cuckooAddress ${CUCKOO_ADDRESS} \
+		--cuckooProcPath ${CUCKOO_PROC_PATH} \
+		--logLevel ${LOG_LEVEL}"
+}
+
+choose_java_service_action $@
+
+exit $?

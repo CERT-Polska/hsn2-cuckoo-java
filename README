@@ -1,0 +1,15 @@
+HSN2 Cuckoo Java (hsn2-cuckoo-java)
+
+
+HSN2 Cuckoo Java analyses supplied websites using the Cuckoo sandbox.
+Cuckoo has to be installed and configured separately. Generates html and json 
+reports from the analysis. Saves network information in the pcap format and 
+saves screenshots. Calculates a rating for the site using the generated reports.
+
+
+
+
+This repository is a part of bigger project: Honeyspider Network 2.1.
+Project bundle is located at: https://github.com/CERT-Polska/hsn2-bundle.
+More information is available on the project's website:
+http://www.honeyspider.net

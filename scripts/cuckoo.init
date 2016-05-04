@@ -1,0 +1,94 @@
+#!/bin/sh -e
+
+### BEGIN INIT INFO
+# Provides:               cuckoo
+# Required-Start:         $remote_fs
+# Required-Stop:          $remote_fs
+# Default-Start:          2 3 4 5
+# Default-Stop:           0 1 6
+# Short-Description:      Start/Stop the Cuckoo Service
+# Description:            Start/Stop the Cuckoo Service
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+PYTHON=`which python`
+
+NAME="Cuckoo"
+PIDFILE_CUCKOO="/var/run/cuckoo.pid"
+PIDFILE_CUCKOO_API="/var/run/cuckoo-api.pid"
+
+CUCKOO_HOME="/opt/hsn2/cuckoo"
+CUCKOO_MAIN_MODULE="cuckoo.py"
+CUCKOO_API_MODULE="utils/api.py"
+
+CUCKOO_CONFIG="/etc/hsn2/cuckoo.conf"
+CUCKOO_API_PORT=`grep CUCKOO_ADDRESS $CUCKOO_CONFIG | sed 's/\"//g' | awk -F ":" '{print $NF}'`
+
+case "$1" in
+	start)
+		log_daemon_msg "Starting" "$NAME"
+		status="0"
+		pidofproc -p $PIDFILE_CUCKOO $PYTHON >/dev/null || status="$?"
+		if [ $status -eq 0 ]; then
+			log_end_msg 0
+			echo "$NAME is already running"
+			return 0
+		else
+			cd "$CUCKOO_HOME"
+			start-stop-daemon --start --quiet --oknodo --background --make-pidfile --pidfile $PIDFILE_CUCKOO --exec /usr/bin/python -- ${CUCKOO_HOME}/${CUCKOO_MAIN_MODULE}
+			start-stop-daemon --start --quiet --oknodo --background --make-pidfile --pidfile $PIDFILE_CUCKOO_API --exec /usr/bin/python -- ${CUCKOO_HOME}/${CUCKOO_API_MODULE} --port $CUCKOO_API_PORT
+			log_end_msg $?
+			return $?
+		fi
+		;;
+
+	stop)
+		log_daemon_msg "Stopping" "$NAME"
+		status="0"
+		pidofproc -p $PIDFILE_CUCKOO $PYTHON >/dev/null || status="$?"
+		if [ $status -eq 0 ]; then
+			start-stop-daemon --stop --quiet --oknodo --pidfile $PIDFILE_CUCKOO_API --retry 10
+			if start-stop-daemon --stop --quiet --oknodo --pidfile $PIDFILE_CUCKOO --retry=TERM/30/KILL/10
+			then
+				for CUCKOO_TCPDUMP in `ps ax | grep tcpdump | grep cuckoo | awk '{print $1}'`
+				do
+					kill -9 $CUCKOO_TCPDUMP
+				done
+
+				for CUCKOO_VBOX in `VBoxManage list runningvms | grep cuckoo | awk '{print $1}' | sed 's/\"//g'`
+				do
+					VBoxManage controlvm $CUCKOO_VBOX poweroff > /dev/null 2>&1
+				done
+
+				log_end_msg 0
+				if [ -f $PIDFILE_CUCKOO ]; then
+					echo "" > $PIDFILE_CUCKOO
+				fi
+				if [ -f $PIDFILE_CUCKOO_API ]; then
+					echo "" > $PIDFILE_CUCKOO_API
+				fi
+			else
+				log_end_msg 1
+			fi
+			return $?
+		else
+			log_end_msg 0
+			echo "$NAME is already stopped"
+			return 0
+		fi
+		;;
+
+	restart|force-reload)
+		if $0 status; then
+			$0 stop && $0 start
+		else
+			$0 start
+		fi
+		;;
+
+	status)
+		status_of_proc -p $PIDFILE_CUCKOO $PYTHON $NAME && exit 0 || exit $?
+		;;
+esac
+exit 0

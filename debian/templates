@@ -1,0 +1,11 @@
+Template: hsn2-cuckoo-java/cuckoo_address
+Type: string
+Default: http://127.0.0.1:1337
+Description: Cuckoo hostname or ip
+ Part of HSN2 Cuckoo Java service configuration.
+
+Template: hsn2-cuckoo-java/cuckoo_proc_path
+Type: string
+Default: /tmp
+Description: Cuckoo proc path
+ Part of HSN2 Cuckoo Java service configuration.

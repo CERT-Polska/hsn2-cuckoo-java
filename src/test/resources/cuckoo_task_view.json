@@ -1,0 +1,26 @@
+{
+    "task": {
+        "started_on": "2015-08-01 01:00:00", 
+        "sample": {}, 
+        "sample_id": null, 
+        "id": 1, 
+        "category": "url", 
+        "priority": 1, 
+        "errors": [], 
+        "guest": {}, 
+        "clock": "2015-08-01 02:00:00", 
+        "custom": "", 
+        "machine": "", 
+        "platform": "", 
+        "memory": false, 
+        "status": "reported", 
+        "tags": [], 
+        "enforce_timeout": false, 
+        "completed_on": null, 
+        "target": "http://www.google.com/", 
+        "package": "", 
+        "timeout": 180, 
+        "options": "", 
+        "added_on": "2015-08-01 00:00:00"
+    }
+}

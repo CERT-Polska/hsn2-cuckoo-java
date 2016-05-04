@@ -1,0 +1,1735 @@
+{
+    "signatures": [],
+    "virustotal": {
+        "permalink": "https://www.virustotal.com/url/ca762fb7f51b33f4dd78c33fa94b46b7ecde6ae3ef161260a7bec78dfab372aa/analysis/1439024666/",
+        "resource": "http://localhost.local/images/logo.gif?1cea8=355320",
+        "url": "http://localhost.local/images/logo.gif?1cea8=355320",
+        "response_code": 1,
+        "scan_date": "2015-08-08 09:04:26",
+        "scan_id": "ca762fb7f51b33f4dd78c33fa94b46b7ecde6ae3ef161260a7bec78dfab372aa-1439024666",
+        "verbose_msg": "Scan finished, scan information embedded in this object",
+        "filescan_id": null,
+        "positives": 4,
+        "total": 63,
+        "scans": {
+            "CLEAN MX": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "VX Vault": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "ZDB Zeus": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Tencent": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "MalwarePatrol": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "ZCloudsec": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "PhishLabs": {
+                "detected": false,
+                "result": "unrated site"
+            },
+            "Zerofox": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "K7AntiVirus": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Quttera": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "AegisLab WebGuard": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "MalwareDomainList": {
+                "detected": false,
+                "result": "clean site",
+                "detail": "http://www.malwaredomainlist.com/mdl.php?search=localhost.local"
+            },
+            "ZeusTracker": {
+                "detected": false,
+                "result": "clean site",
+                "detail": "https://zeustracker.abuse.ch/monitor.php?host=localhost.local"
+            },
+            "zvelo": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Google Safebrowsing": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Kaspersky": {
+                "detected": true,
+                "result": "malware site"
+            },
+            "BitDefender": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Opera": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "ADMINUSLabs": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "C-SIRT": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "CyberCrime": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Websense ThreatSeeker": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "AutoShun": {
+                "detected": false,
+                "result": "unrated site"
+            },
+            "Webutation": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Trustwave": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Web Security Guard": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Dr_Web": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "G-Data": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Malwarebytes hpHosts": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Wepawet": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "AlienVault": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Emsisoft": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Malc0de Database": {
+                "detected": false,
+                "result": "clean site",
+                "detail": "http://malc0de.com/database/index.php?search=localhost.local"
+            },
+            "SpyEyeTracker": {
+                "detected": false,
+                "result": "clean site",
+                "detail": "https://spyeyetracker.abuse.ch/monitor.php?host=localhost.local"
+            },
+            "Phishtank": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Malwared": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Avira": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "ZeroCERT": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "OpenPhish": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Antiy-AVL": {
+                "detected": true,
+                "result": "malicious site"
+            },
+            "FraudSense": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "malwares_com URL checker": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Comodo Site Inspector": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Malekal": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "ESET": {
+                "detected": true,
+                "result": "malware site"
+            },
+            "Sophos": {
+                "detected": true,
+                "result": "malicious site"
+            },
+            "Yandex Safebrowsing": {
+                "detected": false,
+                "result": "clean site",
+                "detail": "http://yandex.com/infected?l10n=en&url=http://localhost.local/images/logo.gif?1cea8=355320"
+            },
+            "SecureBrain": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Malware Domain Blocklist": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Blueliv": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Netcraft": {
+                "detected": false,
+                "result": "unrated site"
+            },
+            "PalevoTracker": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "CRDF": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "ThreatHive": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "ParetoLogic": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Rising": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "URLQuery": {
+                "detected": false,
+                "result": "unrated site"
+            },
+            "StopBadware": {
+                "detected": false,
+                "result": "unrated site"
+            },
+            "Sucuri SiteCheck": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Fortinet": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "SCUMWARE_org": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Spam404": {
+                "detected": false,
+                "result": "clean site"
+            },
+            "Baidu-International": {
+                "detected": false,
+                "result": "clean site"
+            }
+        }
+    },
+    "static": {},
+    "dropped": [
+        {
+            "yara": [],
+            "sha1": "7b7c638b94219cee05ead98d5a0acd2a4f3dfdf3",
+            "name": "hor_nav[1].css",
+            "type": "assembler source, ASCII text, with CRLF line terminators",
+            "sha256": "0c891922793c349d0eac026e7502caa7aa301063ac95eee6787ae218c12929cd",
+            "crc32": "18074268",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/3354235856/hor_nav[1].css",
+            "ssdeep": "48:czeWBiGnrnTnr8Mpd5eW6xqVOFF/JEeO2OzaXQDEW7sZvH+SbKvvUtX+:MeLQXn/PVOHZOzaX0zuNbEvKX+",
+            "size": 2610,
+            "sha512": "221d80907b1f243fdb260fe18d8e684758d5153b47e8450f219478bf399338843618ec849d67cb08c4379b969bfe90a9862c0350a332315a8016ef4b1d251f09",
+            "md5": "9a70b63ac60b51f3ef2eb4d677b802d2"
+        },
+        {
+            "yara": [],
+            "sha1": "9f7caa00f628ad7632fd4711bc3865a1d9ebc18a",
+            "name": "html5fallback[1].js",
+            "type": "UTF-8 Unicode text, with very long lines, with no line terminators",
+            "sha256": "8d8942a49c6d79e4cedd6a7b87830f7631e1c73f354e6cc665642c85b1d60c5c",
+            "crc32": "A90068DD",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/9855119272/html5fallback[1].js",
+            "ssdeep": "192:BL0E6/PSbTVCIpIIMLEHVLgMo5nV9PqitxISA0AQAVN/A:BAE6nSbcIpIIWE1LHo5nVpbxJA7HVN/A",
+            "size": 6478,
+            "sha512": "4e0376749f5631416deeb198785c36f5217705e6af78a1fba1a00fa8ecb5056997c961981fc2f6153a08e5068b4b6c266fb9a4dfb5c4f0b2a4b51df97cce5ac7",
+            "md5": "9af9adf7ec01d2ce6b666906dc9f6fef"
+        },
+        {
+            "yara": [],
+            "sha1": "bb21a600608b517541eba9dc500b84e44cd6c009",
+            "name": "social_bm[1].png",
+            "type": "PNG image data, 235 x 48, 8-bit/color RGBA, non-interlaced",
+            "sha256": "c84367e7ce27effef9add8e09c257a1938f7c07c86d6d1a6eed6e496f625ce1c",
+            "crc32": "59282A5C",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/7863013247/social_bm[1].png",
+            "ssdeep": "192:3o24Zv7vh1fv/CT8eNR1t/lVDRZRPWogUSGfiL+8Y6yj938:3o24RPfGrNbfhdPH9JfiSA",
+            "size": 7071,
+            "sha512": "1d9fcfd0116a78b5e36b2287023a82ca604a66b8c94459bad1432e2d55156c6080013ef8b1f9a8859e75b289815a5318a1a7feaa972cbb0e6fe8c7a2da9f9809",
+            "md5": "7dc040a446c4278bd1034edcfda172e6"
+        },
+        {
+            "yara": [],
+            "sha1": "e7d5f6d89e94d710e5ef480ccc05e97c992101d3",
+            "name": "logo_style3[1].png",
+            "type": "PNG image data, 256 x 91, 8-bit/color RGBA, non-interlaced",
+            "sha256": "0aeff7e89f9a83fdb322ca5a50808d14471078d50aeece18ca73a46dd4c704d7",
+            "crc32": "5D701EAD",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/1702279728/logo_style3[1].png",
+            "ssdeep": "96:5fLb0L+2WEkhxR7v8rKDS1xMjhaCceO0INBIOZWWGd:KvWEQxV8v1x0haJeOd1+d",
+            "size": 3350,
+            "sha512": "906de6293d0bf93a4996dc905d86a74e98378032d4918a5d0dbca83ab73ba7e27dd1ab3e8f89f70b2e653fdb2bbc17f564328491f0294510b3c582f18c178611",
+            "md5": "a5b5967330322c9d2e1d8af4641c63c2"
+        },
+        {
+            "yara": [],
+            "sha1": "f3a83bc4abd0d4f968fc45ec14da4636a8159b38",
+            "name": "revicons[1].eot",
+            "type": "Embedded OpenType (EOT)",
+            "sha256": "9e4d4c6813568fdf70c61eca9446d1bb80f84e79e8f2e5ed177365b6d5de5fbf",
+            "crc32": "5EC17FB5",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/1804227704/revicons[1].eot",
+            "ssdeep": "192:xfDmzu+lqpPKvoZj2rpsD+lcsvDfM9A5sXa/MdMeHso478aumzNKzxgBm+G:xfDmFGyvoZSaDwvDfM9MYjMeHs5fg/",
+            "size": 12136,
+            "sha512": "f88e5f714d87fc7c45fc4cc8dfa7c2b5452662ecf4fea27c45dd5315d3d0f4850985c470486ec34fb97031411f76e80bf2a13791dedd67da9ebc053c1efb3d73",
+            "md5": "2feb69ccb596730c72920c6ba3e37ef8"
+        },
+        {
+            "yara": [],
+            "sha1": "17492a9bea27c2a1fe49b93835fcd5ad816b161d",
+            "name": "css[1].css",
+            "type": "ASCII text",
+            "sha256": "4831e6ac397957955a8f35305ccea767a5693969dee07f8f45e4fc07f2c6dab0",
+            "crc32": "997F78B1",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/4971243373/css[1].css",
+            "ssdeep": "3:0SYWFFWlIYCSQ6ev0RI5XwDKLRIHDfFRWdFTfqzNsqcdBidMZoc8uUbiM2Q7aAkF:0IFFSQl0+56ZRWHTizNspdeAoNRRkrGG",
+            "size": 191,
+            "sha512": "218efff5bbda5594a59368181ade8d22b2bfde7a9df0a801e0ec661c1e14965f1d0ea0f58a893b2f55fc21a9643a90c8fa31a00f16d63208bbaed23085cd1b60",
+            "md5": "ac1959e55326e698affa336c0424588b"
+        },
+        {
+            "yara": [],
+            "sha1": "462e90dd5487b4c692a7c609b7b78f1b93496343",
+            "name": "jquery_no_conflict[1].js",
+            "type": "ASCII text, with no line terminators",
+            "sha256": "844a36c2c43704c5ae846d0f52093463bc6e84d547d04528eefb6313129e570f",
+            "crc32": "A3237154",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/2859406755/jquery_no_conflict[1].js",
+            "ssdeep": "3:RAK+mK1RNf:1+91RNf",
+            "size": 20,
+            "sha512": "5262de5cdca9639477671444650ecd67ee20a600751b21bf3e94ac98902dba55f3f802a366dfedcbab6055dc2493b96ce35b30f75927ee2489a6f95ea05ecb0f",
+            "md5": "3179f2255b046d5f2e9a71e365287bef"
+        },
+        {
+            "yara": [],
+            "sha1": "649daafb0c473c1d15263e27795b665579e26949",
+            "name": "responsive_v1[1].css",
+            "type": "ASCII text, with CRLF line terminators",
+            "sha256": "86f3e894b79fd6d4a912ee5a5fc5fa6331967ea7d9b1f7ec379a7ea65909f20d",
+            "crc32": "289999B9",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/9834151180/responsive_v1[1].css",
+            "ssdeep": "12:vARTmhT7ARHe7430brRifHauAyrZESGIbvnwaHc4ARMr3MHV7:8Ch8f30H4aClEubvnw9dV",
+            "size": 587,
+            "sha512": "154e9746ee9d8229588de7e6d0e93aa4e259449b196dbc8f37dfa572928767971ab22e3b7499cefbd6342a3aea7538f0c72d4bc762dd2464591a8190be71c5bf",
+            "md5": "874d2164d7a6a8e13861d9206e1608fb"
+        },
+        {
+            "yara": [],
+            "sha1": "a0e966ea340b1b452eb1628aa219a69dbe736cbc",
+            "name": "iexplore.exe",
+            "type": "PE32 executable (GUI) Intel 80386, for MS Windows",
+            "sha256": "3b25d953d32205ce5118105c73332928c0921f794925c46189e986bc90f6c342",
+            "crc32": "ED38E8DB",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/1619572856/iexplore.exe",
+            "ssdeep": "1536:OUVgkhBVz4BcDQX2oooD+AyxArAIVJ9yayZbScAEiag5VMIlM:OUHBz46QXMmAIq1LiaU2IlM",
+            "size": 93184,
+            "sha512": "93da71c74f35c3c41c886af15f80fccbd66f14e514c30011fe04dd72109816720217c580104f4bbf64ff9d9f5fc70eebd3872d7b28eb3007e9e1e97177aa49ac",
+            "md5": "94e790cb14279ff3ea244daf0864b8a6"
+        },
+        {
+            "yara": [],
+            "sha1": "653e67ae6611e8ff1ee525a0459263f4fa6d990b",
+            "name": "DsLzC9scoPnrGiwYYMQXpj9sG6gyxihQGrqfBiBoCNc[2].eot",
+            "type": "Embedded OpenType (EOT)",
+            "sha256": "812729da80dd850997be78c6604fc2b22936cfbdc239296ebec0db3e6fc47a76",
+            "crc32": "E5AF6944",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/6382889018/DsLzC9scoPnrGiwYYMQXpj9sG6gyxihQGrqfBiBoCNc[2].eot",
+            "ssdeep": "768:2xBeZ1khOgKLSeJlj6y5N3/zdKaljIKJrLJ:wUUYgS/7P3/7lMYrLJ",
+            "size": 24655,
+            "sha512": "dae59cfd0e6bfcc39b2e036e23bd6b3674af9f60833168a8730dae73beb7b9ee45c93866576314e34774244a1d0f387351f9679b2e17a1ca6f47f9c231521bf8",
+            "md5": "b2a6807b874d3d2b6182d4849eb0c450"
+        },
+        {
+            "yara": [],
+            "sha1": "b84c44a613715f8d80339af2c4bccb075f877365",
+            "name": "scrollReveal[1].js",
+            "type": "UTF-8 Unicode text",
+            "sha256": "9f397831f9e7f51da2ceb0085c30a848487ac4b3bdfa6afcb7505136e5640df1",
+            "crc32": "0A06327D",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/570182618/scrollReveal[1].js",
+            "ssdeep": "192:FMR0cSivYdktmYlxDvfTkbl47dMN2BhWSvaI:FMRhSkuqO2xd",
+            "size": 10391,
+            "sha512": "e288f1fb439e277b6c79b17d54f80563c12929c01a08f115d750152b92e9a061b988a78ede11427b0a91916479830f877f46125e3eed07e9a8ef568449ef9e2a",
+            "md5": "911070b3e9519577625aa399cba02eb9"
+        },
+        {
+            "yara": [],
+            "sha1": "b0b32a5330bc23e12b1b694f2094dd2aa8cf68d9",
+            "name": "bYbkq2nU2TSx4SwFbz5sCHZ2MAKAc2x4R1uOSeegc5U[2].eot",
+            "type": "Embedded OpenType (EOT)",
+            "sha256": "02af319d1d457dbb9982efd557bcacb0059b6f37505ede48126e6cbf23282452",
+            "crc32": "A21E9BD1",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/6586130077/bYbkq2nU2TSx4SwFbz5sCHZ2MAKAc2x4R1uOSeegc5U[2].eot",
+            "ssdeep": "384:j07bArrLkQOS0wn/oO6Kn4J1a8iiMRCUmAtWYOTWh3sl6YmX/lpOugA1:jebonwOr4/adrRrmAAs3/NXtBd",
+            "size": 26813,
+            "sha512": "bc70c57bafccdcef3f4ffca4e0d231301e3515ffa8a15fc6768c5cb993db94c64ddf960dda0f002320558c663b4a6d3410c9908f356d098a09dfd24abf63c460",
+            "md5": "b99e3ff85ac55c55da6d54d2ad7ed726"
+        },
+        {
+            "yara": [],
+            "sha1": "21e998e2427b2e9125c0989551f207fa0026d13c",
+            "name": "k2[1].css",
+            "type": "assembler source, ASCII text, with CRLF line terminators",
+            "sha256": "3f65390b40c1ecf3aea756c69c9a40cecd6d99602b01d6c0f6970057cc9c3fec",
+            "crc32": "2B85F79A",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/2482551242/k2[1].css",
+            "ssdeep": "1536:DK/FoCALx/VhudVylcsD2+zKhIfVsIwO8/M1DDaBkswOX9vhASgu2:g+1DuBG",
+            "size": 57844,
+            "sha512": "b56c33a60f6ce66bbcdc09418aa18f300eaf1b51105086b7ecb89e18e49ac66954d9daa5b722067a2a4766d5a243eb85d82d8c177b5f3693b6e3ecf39a90c219",
+            "md5": "bc7728b3d924d11a0a402482cc8816fe"
+        },
+        {
+            "yara": [],
+            "sha1": "dc9889af0e3d11dc79521a8d7c231d7c39ffbfd6",
+            "name": "jquery.themepunch.tools.min[1].js",
+            "type": "ASCII text, with very long lines",
+            "sha256": "bf47bc03c1c1ff93c041eb5a34e4c9471e4e64e0e0c672599f996fc7a972b119",
+            "crc32": "2F7AA6D5",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/6718070554/jquery.themepunch.tools.min[1].js",
+            "ssdeep": "1536:nxW4OHKIJrO2XQFCPNw+1WzGtYa1Jse0UnCzcf28I9H3+jM1NKzA8ifRVy9m:nPI5a+w7zGWa1J7nCz/8I9+jyt+m",
+            "size": 98511,
+            "sha512": "9eca002640ed04243692c1dced07299fe807cb68eb6b2520b576e8ff771c94936537944e2b4ecae3c65d87b22102b8f372bd4dafff37de67ddb948d26aebcec8",
+            "md5": "ff2be50fbaaf60e26cd022218f639822"
+        },
+        {
+            "yara": [],
+            "sha1": "861fa933d46fc0d542493f9e420a43c976481642",
+            "name": "typography[1].css",
+            "type": "assembler source, ASCII text, with CRLF line terminators",
+            "sha256": "6df305a76d5aaf8e817e37e6df325b3b7d42fb5d58a36a7d94195c3257beae58",
+            "crc32": "C3ABB2D0",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/9933592272/typography[1].css",
+            "ssdeep": "48:Aok3EYH0ByiX4hrJPJej7Rw0ydlsN5Z1ewJy+5p0FDg:B4F0sY4hNBej60OM53ewJXkc",
+            "size": 2232,
+            "sha512": "b20eebbb05d76e7813d06aa41d29e62f9596cb9c5dff3b60ef9d34b29d483c9e21577cf1a6f991f6075baf61723d9df5e59b2c1c013ad49796edb05cf268bb0e",
+            "md5": "32f1170c55c0ce7eb7f02212e4a33d5e"
+        },
+        {
+            "yara": [],
+            "sha1": "d571124895b1c572e218fd1451e36916fff7fcd2",
+            "name": "extralayers[1].css",
+            "type": "ASCII text",
+            "sha256": "6c4090b9f721023bb98abc1e88518581da1852d34b48fe0cfaa39a16e80909a2",
+            "crc32": "696D8F44",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/6001076451/extralayers[1].css",
+            "ssdeep": "384:s+0iJDJ9k+AWA0reh9mUKHhY0gE6FgAG5Z/OyDdfh8D4PA:h0md9DAW/iNgASGCh8D4PA",
+            "size": 25735,
+            "sha512": "5a087976b0018c62c3eb1305cf2d132d94f487020390d25897d68e989496ac44fbbf3f472242270aa5f749c763b96f9a7d0791663416a7995c0af6ce35c40238",
+            "md5": "a0382056d29b204be603051ac5497808"
+        },
+        {
+            "yara": [],
+            "sha1": "8d72d305b0bab4e8b62d3e283239e3bdca9ce5c3",
+            "name": "css[1].css",
+            "type": "ASCII text",
+            "sha256": "3e0f7d70b446bf2275b62530c0e20596b65ea3279f3d0eb359261caee1c7ddb6",
+            "crc32": "39392830",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/9944704184/css[1].css",
+            "ssdeep": "6:0IFFDK+Q+56ZRWHTizNspdRSRkuZI9Mtv:jFI+QO6ZRoTKsp3uZN",
+            "size": 195,
+            "sha512": "bcf4929ca378762957e6f3fc58cce9adcb290ccb14edcab98a97018cab5ce98ad83a94bdc73d39362cc03c594e60ce64e95baf8630910e15e0068140d7a8e656",
+            "md5": "b7852b2bae2445513b0f7e3262c60ed0"
+        },
+        {
+            "yara": [],
+            "sha1": "093ce115d06e142718e5c3bc838d6b7ea201fb6e",
+            "name": "honeypot@www.coresdabahia[1].txt",
+            "type": "ASCII text",
+            "sha256": "14b37101c74b353f5e9d1baafde6f5d6fddd3fcf6f283393cd4743ad71e3c7f0",
+            "crc32": "37CD4911",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/5771584770/honeypot@www.coresdabahia[1].txt",
+            "ssdeep": "3:eJN6OWUKtQ2NTEcVVD6XjidvV4RPv:eJN6OZKtXNT176G8v",
+            "size": 84,
+            "sha512": "117677f312a221d43618d9c4156ff795feea12f920d7aa2ae0d555a815ca5b8a64ef7522c0629390783e48e2b6cc98f7af852894dca4407a7d8fe3992f31502d",
+            "md5": "d6c9aedc53d186bf7af9a33af6e32add"
+        },
+        {
+            "yara": [],
+            "sha1": "bcb48cd014a166dd29dc9a8e99670042e9689d92",
+            "name": "extensions[1].css",
+            "type": "assembler source, ASCII text, with CRLF line terminators",
+            "sha256": "412c8ef51b1bdaebf6425143a45e361ab6fb03f7b2a9ae715dce79f4351b9836",
+            "crc32": "4B6AC942",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/8482205285/extensions[1].css",
+            "ssdeep": "48:CGfFgqls6QCtIRKBhyk++PQN1qRC555aQOmXLePB++9H:CGfGqYS3Y+4ZDcU659H",
+            "size": 3015,
+            "sha512": "9cd767c33795f3d13ffa17bd0a1e42552376ce43f35381e9c1b5dd63e977e25529fe1204fe33b980488b543e81c4511b107482dda88c4c2b0db2ad8ae48bc214",
+            "md5": "a6128002acd72fa6a0872f43fd2b3ec4"
+        },
+        {
+            "yara": [],
+            "sha1": "a1f48b6e53b5700e3f82ea9aa68747c68906679a",
+            "name": "960[1].css",
+            "type": "ASCII text, with very long lines, with no line terminators",
+            "sha256": "06ac4cbc2328d81099bb1400f64be5e44fb3b560b7243afef4ea9d8cae19b751",
+            "crc32": "0ED60F28",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/571546132/960[1].css",
+            "ssdeep": "96:1MU3hqgucfp9be8kaYkDdd6X1BrMqdO2EZIYz3GyHfISN42IyMjP9qUJnd1XhrvE:19fzaPal6X1BrrdlEWYz3GyASN4lyMjm",
+            "size": 5490,
+            "sha512": "ab32db8190b420fa0221f9f09dd87ae1f3fd45d87b8df389e0c39e2077d504bc0df9cb5d464591885eb09738a05238e34ae2e00362238d4204cae3936ec17491",
+            "md5": "74d73d0e37cbb932ccca93a6e30ba3da"
+        },
+        {
+            "yara": [],
+            "sha1": "ef20ec4c328e3fc1ea66e3eebb237e0dbfbf4831",
+            "name": "IcoMoon[1].eot",
+            "type": "Embedded OpenType (EOT)",
+            "sha256": "bdc5d57579db0351f02e106f329aa969d70d6b2df64cb19ed811781f5e32ba3e",
+            "crc32": "EC323AB5",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/8409545788/IcoMoon[1].eot",
+            "ssdeep": "768:b4BxDuNcWxTNcUeBU/W8S55Li3oU9cdObs+:C4nHcUeBU/gri4McdOb5",
+            "size": 25208,
+            "sha512": "2a1b4e5013fd58e56a21ba7c5f19cce25fe77b150db24688ee28f5afc101dc21c1effff0fa22025330bab217e2612718dc9ad8f477a7556622335c070eb31eb9",
+            "md5": "0518013769980a0358effc5988113e0c"
+        },
+        {
+            "yara": [],
+            "sha1": "45eea2e822516df2e84db1193b0fd2dc0f022c59",
+            "name": "button[1].png",
+            "type": "PNG image data, 6 x 100, 8-bit/color RGB, non-interlaced",
+            "sha256": "3e94ddba1d73c4767c7e477e930cf179d6ea232728911b721f73e29accdc21af",
+            "crc32": "EE82C0A2",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/770780581/button[1].png",
+            "ssdeep": "3:yionv//thPlXPH/gl0tRthwkBDsTBZtSuh49B86q646LoFhgsLctVp:6v/lhPCl0znDsphIl46LobgtVp",
+            "size": 165,
+            "sha512": "8979b96cb3e655d9385d0edd2252f42a4577fe50074cea58ef56f1b1949607d92fa2757d07cb514b3f38417c5cc294281cd2793c175607159c3941b0656f98a1",
+            "md5": "e06433d71fb2e58d7f13bd5c49aca6ac"
+        },
+        {
+            "yara": [],
+            "sha1": "743052320809514fb788fe1d3df37fc87ce90452",
+            "name": "jquery-migrate.min[1].js",
+            "type": "ASCII text, with very long lines",
+            "sha256": "1e67d8dbcca1f6fd94e077c85c2fb40fa1c2756c99238daa8da882144260a68d",
+            "crc32": "5ADCCFB5",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/201440653/jquery-migrate.min[1].js",
+            "ssdeep": "96:tBySz91Gwyk35YrfBewIt9jKLKDs2SFNK7wIDBRANyCfVJ45NI:zySzvGw/35YbMx9jKLKD3UIDBR8VVUq",
+            "size": 7199,
+            "sha512": "7b68a43a22a41404a2ff58e0da6a237492cad0fc3e56d216980802b4d5fb483895262a7e049340d6670002bdf899ba88c319239e60d0aae1ac31d98556b0ad6e",
+            "md5": "eb05d8d73b5b13d8d84308a4751ece96"
+        },
+        {
+            "yara": [],
+            "sha1": "3fd26e1570abdb96e3705671a0d05136225608be",
+            "name": "DsLzC9scoPnrGiwYYMQXpj9sG6gyxihQGrqfBiBoCNc[1].eot",
+            "type": "gzip compressed data, max compression",
+            "sha256": "bd19914e3461e86e226e4741ee96a60772d01242daf3ee61f166376a14f23c64",
+            "crc32": "FA6171B5",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/3922473846/DsLzC9scoPnrGiwYYMQXpj9sG6gyxihQGrqfBiBoCNc[1].eot",
+            "ssdeep": "768:i7B4j7N4JbSLGj6Ux3Kk2BdVxeKldIKbcdljIKJrL8:iCj7eJbS1sVygGisolMYrL8",
+            "size": 24635,
+            "sha512": "2188820eba369e08b64273bfed6385f3fd4ebecd7c7d0504937b59c92789b528aa68e49cf055c40c0ccc810fb073f0a4c660f26d4a86f3159d7a4944eb9b2fb2",
+            "md5": "ad97e8bf8e9f6b986c2a2746d0ebe652"
+        },
+        {
+            "yara": [],
+            "sha1": "f017d3e049cf6d5b0a01322668aa3285f7f6e953",
+            "name": "xml[1].css",
+            "type": "assembler source, ASCII text, with CRLF line terminators",
+            "sha256": "d85371ad9886b790ca438f72d808d9278e85d290cb8ea5b190b8b1fa684e6bbe",
+            "crc32": "F68CED59",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/167187488/xml[1].css",
+            "ssdeep": "48:mKwwLVvNUgkpo6nfe6WJReRpnwTxzTQFYvtk/NLls8T4sv0TeZQTPnmJ:p3hEpCYmvkls8TMTEQT4",
+            "size": 5478,
+            "sha512": "430bd49daabe8f35f1dfd91eaad2a928184a4d3e6de43c677a984642ade982ca4da078208322288033afb9e3d12232b6d83de1f624ebaeeae8ceb478cc77b0a5",
+            "md5": "5939d3d6dcb3e5ce36666edd634049d1"
+        },
+        {
+            "yara": [],
+            "sha1": "70e1dbfb33a2a2e83e0bbe0df84e88a7b46dae4e",
+            "name": "template_v1[1].css",
+            "type": "assembler source, ASCII text, with CRLF line terminators",
+            "sha256": "ed2c4e07626698c66896b0aa386df959228c12b1b9f0dfa43b22b65b5df1cddc",
+            "crc32": "609E5762",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/5060432156/template_v1[1].css",
+            "ssdeep": "192:sbjTJCUvpgjNtYKi1BiaJoY3bTYoBLObvjO:gRctriLJJoGbTYsOvK",
+            "size": 9432,
+            "sha512": "1a07bc965a55d5582d95592d5d381a98d4cda3b1a5f327d2083ca9aaf3db0a20c21691d39d0641b214c027d125fc89ca8746d26d753ddfcc5d9a70b21cfa33ea",
+            "md5": "9ce55ec7fdb1246bd2f7f9d58b015480"
+        },
+        {
+            "yara": [],
+            "sha1": "e879415d9cdda4ae99767995f49560440025ad74",
+            "name": "bootstrap.min[1].js",
+            "type": "ASCII text, with very long lines",
+            "sha256": "6ebe64de8e1c2f92400a03a97250c8b2f7443025d53fa42df90cb0589350c233",
+            "crc32": "EDAEC6D7",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/9318630818/bootstrap.min[1].js",
+            "ssdeep": "768:s7S57QFwktDm0INVIPWr8gJBQcqYn0SUs8q:p0OfNs+0WT",
+            "size": 29156,
+            "sha512": "cc5abf82a7160881fa8efa8c31af480ab65fa72d5826de66946d1cc9b28845c1146c19f0549459fc8be67acde4dfa6a94f173f26bbb654e2721fd7f619d11035",
+            "md5": "94935933a620fef61d4b0c15c664f8b3"
+        },
+        {
+            "yara": [],
+            "sha1": "75c3b80452186fc1f0c8d8a017d13f55baa258d4",
+            "name": "totop[1].png",
+            "type": "PNG image data, 46 x 42, 8-bit/color RGBA, non-interlaced",
+            "sha256": "ab4481c7646785055698813f52c31c143f474a86512b367caccf852301db5975",
+            "crc32": "05E73618",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/9821325303/totop[1].png",
+            "ssdeep": "12:6v/7WL9dMA5dFgv0gSffRdyyj0k4PUqFk:pGa2xg5ghkYtFk",
+            "size": 491,
+            "sha512": "5fdf502a879489d4add6dced4a4abd75123dd593fab7c1c934ee06f01fbb3b38797b6832fcced0b054351aacf32a7d45bbca204ac5750efe1e53be4efe894306",
+            "md5": "d01e7bdf17fa596b2b746ac5599c2e23"
+        },
+        {
+            "yara": [],
+            "sha1": "98e8f734736ba327c6eaee5a972e4a4e7c394569",
+            "name": "style[1].css",
+            "type": "ASCII text",
+            "sha256": "97ee2177f3726b58e8bcdb038b58a1d3131f220a5931abee3a3a89c9dd134c4b",
+            "crc32": "3A1732D0",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/5904020417/style[1].css",
+            "ssdeep": "6:8I7vMBREluF8wVDECRLs3TruCvyxLs3TrYTrIJYtGIRLs3TruCvrzwYmQyvXJIXF:8ITMBRE6DVDEC9zdtr0Y0I9+zwkyvXJY",
+            "size": 330,
+            "sha512": "37b6ada239a2d1b58d533b827e6655503134a2bd372602648ab0a0ad3ca051f4880ce4bde161a3ecae7876da46887243f084fa491b35ce695f31ee745a838d29",
+            "md5": "1658461732d9f865e54d29f14fc333bf"
+        },
+        {
+            "yara": [],
+            "sha1": "00f58a6169e3fc4c5843dc2e8edd08230f8d1ead",
+            "name": "bYbkq2nU2TSx4SwFbz5sCHZ2MAKAc2x4R1uOSeegc5U[1].eot",
+            "type": "gzip compressed data, max compression",
+            "sha256": "f0c6ac2e8b1bf990ef27a90c8f83c3bb14c06f4f51c1562be5a36d67b99604ca",
+            "crc32": "D6FE43D2",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/6028413527/bYbkq2nU2TSx4SwFbz5sCHZ2MAKAc2x4R1uOSeegc5U[1].eot",
+            "ssdeep": "768:gSbc78wiq9HUsWIORLEKSzaH6LPCRrmAAs3/NXtBf:gSbcQ2v6AqxmAAy/NXff",
+            "size": 26820,
+            "sha512": "d09bf2cb37378f6157fd1d4732fbe0d1bf33185aa562b276618acec5556aff22152abd92581311745df27caa8d8e72457dc0fce605a6dc7b08f884e8a0e1664d",
+            "md5": "7e91dd23e0693512bee0e4dc372915fe"
+        },
+        {
+            "yara": [],
+            "sha1": "b5590446180084aae78c71f40fca4824a81a0aac",
+            "name": "jquery.themepunch.revolution.min[1].js",
+            "type": "ASCII text, with very long lines",
+            "sha256": "770f981d80f084f2d2271a8c751756449a11b5ccae8525459f6cb1d37ab89453",
+            "crc32": "9D996807",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/6050465808/jquery.themepunch.revolution.min[1].js",
+            "ssdeep": "1536:TjM377PlyX0JwMl1tdKcRbCGOA89TgJX9tnw5aKrb49wPS7Kg7K7kRwKhK/M674E:Tj0zn1KRjb748jpoImsYgv",
+            "size": 113138,
+            "sha512": "a5638d640c48167837160dbc8885afbd41e87a284486253f01f9eb3b290acd073a3817753cbfb9e0e04b7b37516e3d67d0c8e5a6127fa34f244a7eeb7a081c97",
+            "md5": "0801758f13b2e6ddcf5cb4d099da8c21"
+        },
+        {
+            "yara": [],
+            "sha1": "690808aed7efa2636c873507d245d7d0a51a11d5",
+            "name": "header_bg_default[1].png",
+            "type": "PNG image data, 3 x 3, 8-bit gray+alpha, non-interlaced",
+            "sha256": "2c7c5a8a62f1d8582b5b0eb879677a7f5c46233b3c2318af0ee69df3f504932d",
+            "crc32": "E1D4F1FE",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/9120747080/header_bg_default[1].png",
+            "ssdeep": "3:yionv//thPlj/HllVAfTfETQd/bp:6v/lhPh/HllVAfITITp",
+            "size": 76,
+            "sha512": "bfa8cd4c26d78d550ad2693504185b0d842db4964724f059303280e083ce026b6381a87be27f764fb8b33b1a7d6af11bc48311be2b2d0b0d26fcb62e1dbcde7b",
+            "md5": "2d8584e19c4f34c793273a72a305a89f"
+        },
+        {
+            "yara": [],
+            "sha1": "18420ce484978f8ba3d7371febf1638828bb7a67",
+            "name": "jquery-noconflict[1].js",
+            "type": "ASCII text",
+            "sha256": "5b6cf4e6eda02f7c90b60b3c32413c0851915f8f80a268a913b92929085132a6",
+            "crc32": "5E72B00F",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/7091900973/jquery-noconflict[1].js",
+            "ssdeep": "3:RAK+mK1RNH:1+91RNH",
+            "size": 21,
+            "sha512": "dcc2117e42859d51017047b468a99f65d74d45ac2e86ae1cc5605e39041ff2164e562756d93a89fa1f71cbd331f958b351c5afe952a47a560120e080d63bd623",
+            "md5": "e2060c4e5e5955c824723b13a212d3ec"
+        },
+        {
+            "yara": [],
+            "sha1": "2d8b2891415865a1534df2b2860c98504f1f4774",
+            "name": "settings[1].css",
+            "type": "assembler source, UTF-8 Unicode text, with very long lines",
+            "sha256": "9cd6a2d5fcbe09deed531f6a7689a180dce22b9eff29d40f7e65ee9bc67648eb",
+            "crc32": "7960A2C2",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/7297533548/settings[1].css",
+            "ssdeep": "1536:qZmoXYARd9DAKyeVqWfLpvvN1zzYTn5B9srthShu:qZmoXRd9CyB1z8TU",
+            "size": 73292,
+            "sha512": "1f315b04ca34abfb30bc3579b20f9b19412bddf3d4d42627f6594413ea1a8d1966f0d3f7578bd0cd5c8cc87b7ef6435e2a77cca98e819b05765eb8c5039dbff2",
+            "md5": "1eaef4ff870bedc7956dcc1d3a3da262"
+        },
+        {
+            "yara": [],
+            "sha1": "a03cf28e487114a9a4e2d5b1061710802a06c3f7",
+            "name": "only_j3[1].css",
+            "type": "assembler source, ASCII text, with CRLF line terminators",
+            "sha256": "bf9935ba1a01e0fba92dd6d54f086a741b57db15aeafab941b666c9240b66206",
+            "crc32": "5A1BAF22",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/2181277567/only_j3[1].css",
+            "ssdeep": "24:QhyE5aG6TcP9Ns5+my3c9LeM5harKEhc5rdZBjY:Op5P6Td5Fyo5hGa5rVU",
+            "size": 1151,
+            "sha512": "eef69f5d83c606fe5946f74dfb34a1a78eb88a33019f80fbf18cab6e7615f86dca2872b57fe6cb28f874d56be3e77f06a8e9e0e559a182093322100aa893135b",
+            "md5": "255f054c76e4dab0763dbafa83089c58"
+        },
+        {
+            "yara": [],
+            "sha1": "92f1fa9ef5a82429cb1105a8bf4efb7f12e37a17",
+            "name": "animate[1].css",
+            "type": "ASCII text",
+            "sha256": "54d56d411649f96796aac7b439aaf7a81c131a1992681565f6a4558d6319fe84",
+            "crc32": "0218D162",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/9012865173/animate[1].css",
+            "ssdeep": "384:xKTumuQ14uWuk5BlkliGzGEnnI2uWuCfLuPNpIzXGxts1PV4b:sTumuQ14uWuk5innI2uWuCf8",
+            "size": 69152,
+            "sha512": "c0c4f0fdf3f73cdcd7542712be38fb18a088d0c3af42f3603a5b44624190d0a0fd244420e6a3f69914357540be5283d7d24976711f65b2a6db2e2698e275adbf",
+            "md5": "c17f7804707e18662493fa469472e77e"
+        },
+        {
+            "yara": [],
+            "sha1": "36c55ae9bd5f13e601a9c2fcb79b3237032d4aa7",
+            "name": "win.ini",
+            "type": "ASCII text, with CRLF line terminators",
+            "sha256": "1697fc0741b6d2f4e5081f19baec7eb4894741096738a5fd573c965a7b94ce63",
+            "crc32": "9695D435",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/3595669416/win.ini",
+            "ssdeep": "12:F4Yv65RFNMv4LAss9fihqEnP9ZYh78gJP0Q:F30xZkEMpx",
+            "size": 477,
+            "sha512": "8aa0f4e3f6d11b564387e4a63bd93c2a56de27e058cb96c17dfd89fc1a104f61d614df465775bbbb91942876585584ffedc957dece5f8474daa6690684b6786f",
+            "md5": "8715347d6b7b2e3a7cfe5adf2d510ce3"
+        },
+        {
+            "yara": [],
+            "sha1": "d854e4ab35d1526a17acdcd400d128a3436dd5eb",
+            "name": "4[1].jpg",
+            "type": "JPEG image data, JFIF standard 1.02",
+            "sha256": "f7a78dfecec6bac3310baab24fc67bfce48d0240e82e1e81ba754d26c4efd7c4",
+            "crc32": "AE05ABD5",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/6175507795/4[1].jpg",
+            "ssdeep": "3072:Job2qUP/dLPLEEJUBjz78yvuTMkZHa2+5Y/sR:Je436UyvukMkR",
+            "size": 101740,
+            "sha512": "c93e035c1d239caae553b7608b1169da60f5823b1a36b4f8a6cd608943d14f205768ed25ffef6a1358d273b1425d6e8a59c8162cd5a42425ef1ba46770064233",
+            "md5": "29d150988e45cff999d4a3067b564dbf"
+        },
+        {
+            "yara": [],
+            "sha1": "b70ab57a92e16e1bedae271ebefce578a12cf438",
+            "name": "js_color_tool[1].js",
+            "type": "UTF-8 Unicode (with BOM) text, with CRLF line terminators",
+            "sha256": "14b57e976a1e729f1dc30fe5f6b59b443008ccb33ef16f0800adcbf804384b24",
+            "crc32": "1E62A8E1",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/7124209813/js_color_tool[1].js",
+            "ssdeep": "24:mPgd9FqQH5+efjVRWKZQbCT0kxRGqIWmG52XcxMItI8YA:mPgdD5+CVwUQmAkWG8XcxMItIC",
+            "size": 875,
+            "sha512": "89dc304b2b640ba73a349b6422c17e37107f6a13181124374d04f3741f199b4ea14a2dfdbe1b63cce16f0a92d27ff1b7925c417f62bfeb93f9f0f707670217bf",
+            "md5": "e3ea9c6af9d51931b6ab551e38d9a47f"
+        },
+        {
+            "yara": [],
+            "sha1": "44a33096a0498722bc286c5f190d37b070db2d23",
+            "name": "jquery.min[1].js",
+            "type": "ASCII text, with very long lines",
+            "sha256": "c8963b6bd2ca8497603794bf9adcbff7a3ea55c9c3edef3d5a992405ee256a90",
+            "crc32": "17C7DE7A",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/4028570436/jquery.min[1].js",
+            "ssdeep": "1536:5P1vk7i6GUHdXXeyQazBu+4HhiO2AEeLNFoqqhJ7SerN5sVI6xcBgPv7E+nzms9t:A4Ud4qhJvNPqcB47MfWWca98Hrp",
+            "size": 95930,
+            "sha512": "10421eafb6ca5f609e95495cb05f82414890d82284838ce342c4d4fb6b656949890ccf84a70ef49b7c8ad166b55d67457e5757e14ee7afc6ceef86f29bc9c597",
+            "md5": "019c5fb7c4771808dc65e1096c771348"
+        },
+        {
+            "yara": [],
+            "sha1": "557027f39b29f20e4fed2f9da22005325b2612a4",
+            "name": "bootstrap-responsive[1].css",
+            "type": "assembler source, ASCII text",
+            "sha256": "bdd8521095c5df9b6b8bdf66897421a9af5b3fdf55b09c47cd672941499cdbe8",
+            "crc32": "868A345A",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/1693853811/bootstrap-responsive[1].css",
+            "ssdeep": "3072:vey4i40a0KZlVciGdRCyiNUVqTYZnguyg41yDZqYZ8I2ARryfhO:veyH40a0KZliiGdRCyiNUVqTYZnguygl",
+            "size": 158671,
+            "sha512": "c909da6c494e905f0b68343b24a73882fc6f68380f916bca3850f4fcbfa3c1701e49e5393324cba43fcd5af9928e4f66f6b252038799a7f3390df6dd815d6dba",
+            "md5": "07cca78bb5253bce0e54e66bed528c52"
+        },
+        {
+            "yara": [],
+            "sha1": "c7250575c0c7effdcc84d9642f80a5a2c383416a",
+            "name": "template_v2[1].css",
+            "type": "assembler source, ASCII text, with CRLF line terminators",
+            "sha256": "868e4fd8d5d4849a322ebd8ad8fe3e8fafde655b6bda3441ca9a43653a55a89b",
+            "crc32": "C8E87B93",
+            "path": "/opt/hsn2/cuckoo/storage/analyses/1280/files/7316840310/template_v2[1].css",
+            "ssdeep": "48:pmBPmBnmBvuM66mxNQQkrg6FPGJphQcRQSu0VQGw58cINQIktIjIQAmBLksLeLBq:r7dWd3cKBl8cI+1tCnAkgsKtE/",
+            "size": 3366,
+            "sha512": "ef0567a4a6086b5fcae11a1f7842ec9fc38f3bd30df5c11327c3a6d8ecb0841742859a89a8dad83fb5dcbd09689baf24ac5c57a5517c919e823812e313de8499",
+            "md5": "130fda497eaeaf1a02c5eef511c676c0"
+        }
+    ],
+    "network": {
+        "udp": [
+            {
+                "src": "10.23.0.44",
+                "dst": "10.23.0.255",
+                "offset": 806,
+                "time": 13.886255979537964,
+                "dport": 137,
+                "sport": 137
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "10.23.0.38",
+                "offset": 1706,
+                "time": 15.630533933639526,
+                "dport": 53,
+                "sport": 1025
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "23.99.222.162",
+                "offset": 8061,
+                "time": 15.774327993392944,
+                "dport": 123,
+                "sport": 123
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "239.255.255.250",
+                "offset": 8273,
+                "time": 21.53225302696228,
+                "dport": 1900,
+                "sport": 1030
+            },
+            {
+                "src": "10.23.0.45",
+                "dst": "10.23.0.44",
+                "offset": 1102614,
+                "time": 13.900579929351807,
+                "dport": 137,
+                "sport": 137
+            }
+        ],
+        "irc": [
+            {
+                "command": "USER",
+                "params": "PAGE",
+                "type": "client"
+            },
+            {
+                "command": "LINKS",
+                "params": "COLOR*/",
+                "type": "client"
+            }
+        ],
+        "http": [
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/js/jquery.themepunch.tools.min.js",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/js/jquery.themepunch.tools.min.js",
+                "data": "GET /templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/js/jquery.themepunch.tools.min.js HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://fonts.googleapis.com/css?family=Francois%20One",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "fonts.googleapis.com",
+                "version": "1.1",
+                "path": "/css?family=Francois%20One",
+                "data": "GET /css?family=Francois%20One HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: fonts.googleapis.com\r\nConnection: Keep-Alive\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/js/jquery.themepunch.revolution.min.js",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/js/jquery.themepunch.revolution.min.js",
+                "data": "GET /templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/js/jquery.themepunch.revolution.min.js HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/responsive_v1.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/responsive_v1.css",
+                "data": "GET /templates/at_newsjunction/css/responsive_v1.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/images/backgrounds/module_bg_default.png",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/images/backgrounds/module_bg_default.png",
+                "data": "GET /templates/at_newsjunction/images/backgrounds/module_bg_default.png HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/js/jquery_no_conflict.js",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/js/jquery_no_conflict.js",
+                "data": "GET /templates/at_newsjunction/js/jquery_no_conflict.js HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/animate.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/animate.css",
+                "data": "GET /templates/at_newsjunction/css/animate.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/bootstrap-responsive.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/bootstrap-responsive.css",
+                "data": "GET /templates/at_newsjunction/css/bootstrap-responsive.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/extensions.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/extensions.css",
+                "data": "GET /templates/at_newsjunction/css/extensions.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/images/social_media/social_bm.png",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/images/social_media/social_bm.png",
+                "data": "GET /templates/at_newsjunction/images/social_media/social_bm.png HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/js/js_color_tool.js",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/js/js_color_tool.js",
+                "data": "GET /templates/at_newsjunction/js/js_color_tool.js HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/includes/layouts/slideshow/css/style.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/includes/layouts/slideshow/css/style.css",
+                "data": "GET /templates/at_newsjunction/includes/layouts/slideshow/css/style.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://fonts.gstatic.com/s/archivonarrow/v5/DsLzC9scoPnrGiwYYMQXpj9sG6gyxihQGrqfBiBoCNc.eot",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "fonts.gstatic.com",
+                "version": "1.1",
+                "path": "/s/archivonarrow/v5/DsLzC9scoPnrGiwYYMQXpj9sG6gyxihQGrqfBiBoCNc.eot",
+                "data": "GET /s/archivonarrow/v5/DsLzC9scoPnrGiwYYMQXpj9sG6gyxihQGrqfBiBoCNc.eot HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: fonts.gstatic.com\r\nConnection: Keep-Alive\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/template_v1.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/template_v1.css",
+                "data": "GET /templates/at_newsjunction/css/template_v1.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/images/4.jpg",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/images/4.jpg",
+                "data": "GET /images/4.jpg HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/images/backgrounds/footer_bg_default.png",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/images/backgrounds/footer_bg_default.png",
+                "data": "GET /templates/at_newsjunction/images/backgrounds/footer_bg_default.png HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/hor_nav.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/hor_nav.css",
+                "data": "GET /templates/at_newsjunction/css/hor_nav.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/images/logo.gif?1cea8=355320",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/images/logo.gif?1cea8=355320",
+                "data": "GET /images/logo.gif?1cea8=355320 HTTP/1.1\r\nAccept: */*\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://localhost.local/images/logo.gif?1cea8=355320",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "localhost.local",
+                "version": "1.1",
+                "path": "/images/logo.gif?1cea8=355320",
+                "data": "GET /images/logo.gif?1cea8=355320 HTTP/1.1\r\nAccept: */*\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: localhost.local\r\nConnection: Keep-Alive\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/component/users/?view=login",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/component/users/?view=login",
+                "data": "GET /component/users/?view=login HTTP/1.1\r\nAccept: */*\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/template_v2.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/template_v2.css",
+                "data": "GET /templates/at_newsjunction/css/template_v2.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/font/revicons.eot?5510888",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/font/revicons.eot?5510888",
+                "data": "GET /templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/font/revicons.eot?5510888 HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/images/backgrounds/mainbody_bg_default.png",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/images/backgrounds/mainbody_bg_default.png",
+                "data": "GET /templates/at_newsjunction/images/backgrounds/mainbody_bg_default.png HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/images//logo_style3.png",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/images//logo_style3.png",
+                "data": "GET /templates/at_newsjunction/images//logo_style3.png HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/includes/layouts/slideshow/css/extralayers.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/includes/layouts/slideshow/css/extralayers.css",
+                "data": "GET /templates/at_newsjunction/includes/layouts/slideshow/css/extralayers.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/k2.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/k2.css",
+                "data": "GET /templates/at_newsjunction/css/k2.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/images/button.png",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/images/button.png",
+                "data": "GET /templates/at_newsjunction/images/button.png HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/images/totop.png",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/images/totop.png",
+                "data": "GET /templates/at_newsjunction/images/totop.png HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/js/scrollReveal.js",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/js/scrollReveal.js",
+                "data": "GET /templates/at_newsjunction/js/scrollReveal.js HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/images/menu_img/nav_bg_default.png",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/images/menu_img/nav_bg_default.png",
+                "data": "GET /templates/at_newsjunction/images/menu_img/nav_bg_default.png HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/960.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/960.css",
+                "data": "GET /templates/at_newsjunction/css/960.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/media/jui/js/bootstrap.min.js",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/media/jui/js/bootstrap.min.js",
+                "data": "GET /media/jui/js/bootstrap.min.js HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://fonts.gstatic.com/s/francoisone/v9/bYbkq2nU2TSx4SwFbz5sCHZ2MAKAc2x4R1uOSeegc5U.eot",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "fonts.gstatic.com",
+                "version": "1.1",
+                "path": "/s/francoisone/v9/bYbkq2nU2TSx4SwFbz5sCHZ2MAKAc2x4R1uOSeegc5U.eot",
+                "data": "GET /s/francoisone/v9/bYbkq2nU2TSx4SwFbz5sCHZ2MAKAc2x4R1uOSeegc5U.eot HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: fonts.gstatic.com\r\nConnection: Keep-Alive\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/media/jui/js/jquery.min.js",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/media/jui/js/jquery.min.js",
+                "data": "GET /media/jui/js/jquery.min.js HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/css/settings.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/css/settings.css",
+                "data": "GET /templates/at_newsjunction/includes/layouts/slideshow/rs-plugin/css/settings.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/media/jui/fonts/IcoMoon.eot?",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/media/jui/fonts/IcoMoon.eot?",
+                "data": "GET /media/jui/fonts/IcoMoon.eot? HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://statsfe2.update.microsoft.com/ReportingWebService/ReportingWebService.asmx",
+                "user-agent": "Microsoft WU Client/2.0",
+                "method": "POST",
+                "host": "statsfe2.update.microsoft.com",
+                "version": "1.1",
+                "path": "/ReportingWebService/ReportingWebService.asmx",
+                "data": "POST /ReportingWebService/ReportingWebService.asmx HTTP/1.1\r\nAccept: text/xml\r\nContent-Type: text/xml\r\nSOAPAction: \"http://www.microsoft.com/SoftwareDistribution/ReportEventBatch\"\r\nUser-Agent: Microsoft WU Client/2.0\r\nHost: statsfe2.update.microsoft.com\r\nContent-Length: 2039\r\nConnection: Keep-Alive\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/media/jui/js/jquery-migrate.min.js",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/media/jui/js/jquery-migrate.min.js",
+                "data": "GET /media/jui/js/jquery-migrate.min.js HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/images/backgrounds/header_bg_default.png",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/images/backgrounds/header_bg_default.png",
+                "data": "GET /templates/at_newsjunction/images/backgrounds/header_bg_default.png HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/only_j3.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/only_j3.css",
+                "data": "GET /templates/at_newsjunction/css/only_j3.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/xml.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/xml.css",
+                "data": "GET /templates/at_newsjunction/css/xml.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://fonts.googleapis.com/css?family=Archivo%20Narrow",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "fonts.googleapis.com",
+                "version": "1.1",
+                "path": "/css?family=Archivo%20Narrow",
+                "data": "GET /css?family=Archivo%20Narrow HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: fonts.googleapis.com\r\nConnection: Keep-Alive\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/templates/at_newsjunction/css/typography.css",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/templates/at_newsjunction/css/typography.css",
+                "data": "GET /templates/at_newsjunction/css/typography.css HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/media/system/js/html5fallback.js",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/media/system/js/html5fallback.js",
+                "data": "GET /media/system/js/html5fallback.js HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            },
+            {
+                "count": 1,
+                "body": "",
+                "uri": "http://www.localhost.local/media/jui/js/jquery-noconflict.js",
+                "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)",
+                "method": "GET",
+                "host": "www.localhost.local",
+                "version": "1.1",
+                "path": "/media/jui/js/jquery-noconflict.js",
+                "data": "GET /media/jui/js/jquery-noconflict.js HTTP/1.1\r\nAccept: */*\r\nReferer: http://www.localhost.local/component/users/?view=login\r\nAccept-Language: pl\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)\r\nHost: www.localhost.local\r\nConnection: Keep-Alive\r\nCookie: b0fccc8ee21b594044b96b356c98460e=r1vl5n5jv0gs2ljffnpujumb04; CssStyle=style3\r\n\r\n",
+                "port": 80
+            }
+        ],
+        "smtp": [],
+        "tcp": [
+            {
+                "src": "10.23.0.44",
+                "dst": "173.194.67.95",
+                "offset": 4845,
+                "time": 52.20889592170715,
+                "dport": 80,
+                "sport": 1042
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "173.194.67.95",
+                "offset": 6499,
+                "time": 52.21523594856262,
+                "dport": 80,
+                "sport": 1043
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "62.149.128.166",
+                "offset": 9072,
+                "time": 46.68409490585327,
+                "dport": 80,
+                "sport": 1036
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "62.149.144.106",
+                "offset": 10603,
+                "time": 46.9494309425354,
+                "dport": 80,
+                "sport": 1037
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "62.149.144.106",
+                "offset": 30726,
+                "time": 49.18377089500427,
+                "dport": 80,
+                "sport": 1038
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "62.149.144.106",
+                "offset": 289857,
+                "time": 49.20345401763916,
+                "dport": 80,
+                "sport": 1039
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "62.149.144.106",
+                "offset": 635514,
+                "time": 49.411510944366455,
+                "dport": 80,
+                "sport": 1040
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "62.149.144.106",
+                "offset": 816588,
+                "time": 49.84694790840149,
+                "dport": 80,
+                "sport": 1041
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "65.52.108.153",
+                "offset": 1041266,
+                "time": 65.60965895652771,
+                "dport": 80,
+                "sport": 1048
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "74.125.232.152",
+                "offset": 1045575,
+                "time": 52.8646719455719,
+                "dport": 80,
+                "sport": 1044
+            },
+            {
+                "src": "10.23.0.44",
+                "dst": "74.125.232.152",
+                "offset": 1075299,
+                "time": 52.92316699028015,
+                "dport": 80,
+                "sport": 1045
+            }
+        ],
+        "hosts": [
+            "134.170.58.222",
+            "173.194.67.95",
+            "23.99.222.162",
+            "62.149.128.166",
+            "62.149.144.106",
+            "65.52.108.153",
+            "65.55.50.158",
+            "74.125.232.152"
+        ],
+        "pcap_sha256": "bb0f3abb8f99c76fb70ee5ad64a9bf6c6e4acc7ed3715522b6ba170ff68a08fc",
+        "dns": [
+            {
+                "type": "A",
+                "request": "time.windows.com",
+                "answers": [
+                    {
+                        "data": "23.99.222.162",
+                        "type": "A"
+                    },
+                    {
+                        "data": "time.microsoft.akadns.net",
+                        "type": "CNAME"
+                    }
+                ]
+            },
+            {
+                "type": "A",
+                "request": "wpad",
+                "answers": []
+            },
+            {
+                "type": "A",
+                "request": "fonts.gstatic.com",
+                "answers": [
+                    {
+                        "data": "74.125.232.152",
+                        "type": "A"
+                    },
+                    {
+                        "data": "74.125.232.143",
+                        "type": "A"
+                    },
+                    {
+                        "data": "74.125.232.159",
+                        "type": "A"
+                    },
+                    {
+                        "data": "74.125.232.151",
+                        "type": "A"
+                    },
+                    {
+                        "data": "gstaticadssl.l.google.com",
+                        "type": "CNAME"
+                    }
+                ]
+            },
+            {
+                "type": "A",
+                "request": "www.update.microsoft.com",
+                "answers": [
+                    {
+                        "data": "134.170.58.222",
+                        "type": "A"
+                    },
+                    {
+                        "data": "www.update.microsoft.com.nsatc.net",
+                        "type": "CNAME"
+                    },
+                    {
+                        "data": "65.55.50.158",
+                        "type": "A"
+                    }
+                ]
+            },
+            {
+                "type": "A",
+                "request": "fonts.googleapis.com",
+                "answers": [
+                    {
+                        "data": "googleadapis.l.google.com",
+                        "type": "CNAME"
+                    },
+                    {
+                        "data": "173.194.67.95",
+                        "type": "A"
+                    }
+                ]
+            },
+            {
+                "type": "A",
+                "request": "statsfe2.update.microsoft.com",
+                "answers": [
+                    {
+                        "data": "statsfe2.update.microsoft.com.akadns.net",
+                        "type": "CNAME"
+                    },
+                    {
+                        "data": "65.52.108.153",
+                        "type": "A"
+                    }
+                ]
+            },
+            {
+                "type": "A",
+                "request": "www.localhost.local",
+                "answers": [
+                    {
+                        "data": "62.149.144.106",
+                        "type": "A"
+                    }
+                ]
+            },
+            {
+                "type": "A",
+                "request": "localhost.local",
+                "answers": [
+                    {
+                        "data": "62.149.128.157",
+                        "type": "A"
+                    },
+                    {
+                        "data": "62.149.128.154",
+                        "type": "A"
+                    },
+                    {
+                        "data": "62.149.128.163",
+                        "type": "A"
+                    },
+                    {
+                        "data": "62.149.128.72",
+                        "type": "A"
+                    },
+                    {
+                        "data": "62.149.128.160",
+                        "type": "A"
+                    },
+                    {
+                        "data": "62.149.128.74",
+                        "type": "A"
+                    },
+                    {
+                        "data": "62.149.128.151",
+                        "type": "A"
+                    },
+                    {
+                        "data": "62.149.128.166",
+                        "type": "A"
+                    }
+                ]
+            }
+        ],
+        "domains": [
+            {
+                "ip": "",
+                "domain": "wpad"
+            },
+            {
+                "ip": "134.170.58.222",
+                "domain": "www.update.microsoft.com"
+            },
+            {
+                "ip": "62.149.128.160",
+                "domain": "localhost.local"
+            },
+            {
+                "ip": "62.149.144.106",
+                "domain": "www.localhost.local"
+            },
+            {
+                "ip": "173.194.67.95",
+                "domain": "fonts.googleapis.com"
+            },
+            {
+                "ip": "74.125.232.143",
+                "domain": "fonts.gstatic.com"
+            },
+            {
+                "ip": "65.52.108.153",
+                "domain": "statsfe2.update.microsoft.com"
+            }
+        ],
+        "sorted_pcap_sha256": "f9333c09c5cf1c97d47663f0560e205581584a676fb9aa8975cb9e41811e8005",
+        "icmp": []
+    },
+    "info": {
+        "category": "url",
+        "package": "",
+        "started": "2015-08-14 00:34:12",
+        "custom": "",
+        "machine": {
+            "shutdown_on": "2015-08-14 00:39:13",
+            "label": "cuckoo1",
+            "manager": "VirtualBox",
+            "started_on": "2015-08-14 00:34:12",
+            "id": 1280,
+            "name": "cuckoo1"
+        },
+        "ended": "2015-08-14 00:39:13",
+        "version": "1.2",
+        "duration": 301,
+        "id": 1280
+    },
+    "procmemory": [],
+    "target": {
+        "category": "url",
+        "url": "http://localhost.local/images/logo.gif?1cea8=355320"
+    },
+    "behavior": {
+        "processtree": [],
+        "processes": [],
+        "anomaly": [],
+        "enhanced": [],
+        "summary": {
+            "files": [],
+            "keys": [],
+            "mutexes": []
+        }
+    },
+    "debug": {
+        "errors": [],
+        "log": "2015-08-14 00:34:12,000 [root] DEBUG: Starting analyzer from: C:\\vfjmtibycm\n2015-08-14 00:34:12,012 [root] DEBUG: Storing results at: C:\\frsKcbc\n2015-08-14 00:34:12,023 [root] DEBUG: Pipe server name: \\\\.\\PIPE\\ssqYZj\n2015-08-14 00:34:12,023 [root] DEBUG: No analysis package specified, trying to detect it automagically.\n2015-08-14 00:34:12,036 [root] INFO: Automatically selected analysis package \"ie\"\n2015-08-14 00:34:12,253 [root] DEBUG: Started auxiliary module Disguise\n2015-08-14 00:34:12,253 [root] DEBUG: Started auxiliary module Human\n2015-08-14 00:34:12,266 [root] DEBUG: Started auxiliary module Screenshots\n2015-08-14 00:34:12,289 [modules.auxiliary.screenshots] WARNING: Python Image Library is not installed, screenshots are disabled\n2015-08-14 00:34:12,302 [lib.api.process] INFO: Successfully executed process from path \"C:\\Program Files\\Internet Explorer\\iexplore.exe\" with arguments \"\"http://localhost.local/images/logo.gif?1cea8=355320\"\" with pid 1920\n2015-08-14 00:34:12,483 [lib.api.process] DEBUG: Using QueueUserAPC injection.\n2015-08-14 00:34:12,483 [lib.api.process] INFO: Successfully injected process with pid 1920.\n2015-08-14 00:34:14,931 [lib.api.process] INFO: Successfully resumed process with pid 1920\n2015-08-14 00:34:27,510 [lib.api.process] ERROR: Timeout waiting for cuckoomon to initialize in pid 1920\n2015-08-14 00:34:27,523 [root] INFO: Added new process to list with pid: 1920\n2015-08-14 00:34:45,953 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Cookies\\honeypot@www.coresdabahia[1].txt\n2015-08-14 00:34:47,947 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\style[1].css\n2015-08-14 00:34:47,963 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\extralayers[1].css\n2015-08-14 00:34:48,108 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\960[1].css\n2015-08-14 00:34:48,285 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\bootstrap-responsive[1].css\n2015-08-14 00:34:48,388 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\settings[1].css\n2015-08-14 00:34:48,783 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\k2[1].css\n2015-08-14 00:34:48,828 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\animate[1].css\n2015-08-14 00:34:48,901 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\MVW7YRWL\\only_j3[1].css\n2015-08-14 00:34:48,960 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\MVW7YRWL\\hor_nav[1].css\n2015-08-14 00:34:48,989 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\extensions[1].css\n2015-08-14 00:34:49,048 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\typography[1].css\n2015-08-14 00:34:49,135 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\0B4V612T\\template_v1[1].css\n2015-08-14 00:34:49,150 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\0B4V612T\\responsive_v1[1].css\n2015-08-14 00:34:49,194 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\template_v2[1].css\n2015-08-14 00:34:49,296 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\xml[1].css\n2015-08-14 00:34:49,400 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\MVW7YRWL\\jquery.min[1].js\n2015-08-14 00:34:49,605 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\revicons[1].eot\n2015-08-14 00:34:49,825 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\IcoMoon[1].eot\n2015-08-14 00:34:50,739 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\0B4V612T\\jquery-noconflict[1].js\n2015-08-14 00:34:50,888 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\MVW7YRWL\\jquery-migrate.min[1].js\n2015-08-14 00:34:51,099 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\html5fallback[1].js\n2015-08-14 00:34:51,250 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\bootstrap.min[1].js\n2015-08-14 00:34:51,325 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\0B4V612T\\jquery_no_conflict[1].js\n2015-08-14 00:34:51,369 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\MVW7YRWL\\js_color_tool[1].js\n2015-08-14 00:34:51,640 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\jquery.themepunch.tools.min[1].js\n2015-08-14 00:34:52,121 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\jquery.themepunch.revolution.min[1].js\n2015-08-14 00:34:52,331 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\0B4V612T\\logo_style3[1].png\n2015-08-14 00:34:52,512 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\MVW7YRWL\\css[1].css\n2015-08-14 00:34:52,752 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\css[1].css\n2015-08-14 00:34:52,992 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\4[1].jpg\n2015-08-14 00:34:53,157 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\0B4V612T\\header_bg_default[1].png\n2015-08-14 00:34:53,338 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\0B4V612T\\nav_bg_default[1].png\n2015-08-14 00:34:53,382 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\MVW7YRWL\\mainbody_bg_default[1].png\n2015-08-14 00:34:53,562 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\button[1].png\n2015-08-14 00:34:53,608 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\footer_bg_default[1].png\n2015-08-14 00:34:53,653 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\totop[1].png\n2015-08-14 00:34:53,697 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\MVW7YRWL\\scrollReveal[1].js\n2015-08-14 00:34:54,283 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\QR8LYPGN\\module_bg_default[1].png\n2015-08-14 00:34:54,434 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\0B4V612T\\social_bm[1].png\n2015-08-14 00:34:54,479 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\MVW7YRWL\\bYbkq2nU2TSx4SwFbz5sCHZ2MAKAc2x4R1uOSeegc5U[1].eot\n2015-08-14 00:34:54,493 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\MVW7YRWL\\bYbkq2nU2TSx4SwFbz5sCHZ2MAKAc2x4R1uOSeegc5U[2].eot\n2015-08-14 00:34:54,509 [root] INFO: Added new file to list with path: C:\\Program Files\\Internet Explorer\\iexplore.exe\n2015-08-14 00:34:54,523 [root] INFO: Added new file to list with path: C:\\WINDOWS\\win.ini\n2015-08-14 00:34:54,930 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\DsLzC9scoPnrGiwYYMQXpj9sG6gyxihQGrqfBiBoCNc[1].eot\n2015-08-14 00:34:54,960 [root] INFO: Added new file to list with path: C:\\Documents and Settings\\Honeypot\\Ustawienia lokalne\\Temporary Internet Files\\Content.IE5\\09W5WZK3\\DsLzC9scoPnrGiwYYMQXpj9sG6gyxihQGrqfBiBoCNc[2].eot\n2015-08-14 00:38:55,845 [root] INFO: Analysis timeout hit, terminating analysis.\n2015-08-14 00:39:07,128 [root] INFO: Analysis completed.\n"
+    },
+    "strings": []
+}
